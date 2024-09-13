@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: var(--backgroud-standard-primary);
+  color: var(--content-standard-primary);
+}
+
+:root {
+  --solid-red: rgba(255, 64, 53, 1);
+  --solid-orange: rgba(255, 154, 5, 1);
+  --solid-yellow: rgba(245, 201, 5, 1);
+  --solid-green: rgba(50, 204, 88, 1);
+  --solid-blue: rgba(5, 127, 255, 1);
+  --solid-indigo: rgba(91, 89, 222, 1);
+  --solid-purple: rgba(183, 86, 232, 1);
+  --solid-pink: rgba(255, 50, 90, 1);
+  --solid-brown: rgba(167, 137, 99, 1);
+  --solid-black: rgba(0, 0, 0, 1);
+  --solid-white: rgba(255, 255, 255, 1);
+
+  --solid-translucent-red: rgba(255, 64, 53, 0.1);
+  --solid-translucent-orange: rgba(255, 154, 5, 0.1);
+  --solid-translucent-yellow: rgba(245, 201, 5, 0.1);
+  --solid-translucent-green: rgba(50, 204, 88, 0.1);
+  --solid-translucent-blue: rgba(5, 127, 255, 0.1);
+  --solid-translucent-indigo: rgba(91, 89, 222, 0.1);
+  --solid-translucent-purple: rgba(183, 86, 232, 0.1);
+  --solid-translucent-pink: rgba(255, 50, 90, 0.1);
+  --solid-translucent-brown: rgba(167, 137, 99, 0.1);
+  --solid-translucent-black: rgba(0, 0, 0, 0.1);
+  --solid-translucent-white: rgba(255, 255, 255, 0.1);
+
+  --backgroud-standard-primary: var(--solid-white);
+  --backgroud-standard-secondary: rgba(237, 238, 242, 1);
+
+  --backgroud-inverted-primary: var(--solid-black);
+  --backgroud-inverted-secondary: rgba(14, 14, 15, 1);
+
+  --content-standard-primary: rgba(41, 42, 46, 1);
+  --content-standard-secondary: rgba(41, 42, 46, 0.7);
+  --content-standard-tertiary: rgba(41, 42, 46, 0.5);
+  --content-standard-quaternary: rgba(41, 42, 46, 0.3);
+
+  --content-inverted-primary: rgba(244, 244, 245, 1);
+  --content-inverted-secondary: rgba(244, 244, 245, 0.6);
+  --content-inverted-tertiary: rgba(244, 244, 245, 0.4);
+  --content-inverted-quaternary: rgba(244, 244, 245, 0.2);
+
+  --line-divider: rgba(121, 123, 138, 0.16);
+  --line-outline: rgba(121, 123, 138, 0.12);
+
+  --components-fill-standard-primary: rgba(250, 250, 250, 1);
+  --components-fill-standard-secondary: rgba(247, 247, 247, 1);
+  --components-fill-standard-tertiary: rgba(240, 240, 240, 1);
+
+  --components-fill-inverted-primary: rgba(19, 19, 20, 1);
+  --components-fill-inverted-secondary: rgba(22, 22, 23, 1);
+  --components-fill-inverted-tertiary: rgba(27, 28, 29, 1);
+
+  --components-interactive-hover: rgba(41, 42, 46, 0.08);
+  --components-interactive-focused: rgba(41, 42, 46, 0.12);
+  --components-interactive-pressed: rgba(41, 42, 46, 0.16);
+
+  --components-translucent-primary: rgba(121, 124, 138, 0.1);
+  --components-translucent-secondary: rgba(121, 124, 138, 0.08);
+  --components-translucent-tertiary: rgba(121, 124, 138, 0.04);
+
+  --core-accent: rgba(84, 114, 235, 1);
+  --core-accent-translucent: rgba(84, 114, 235, 0.1);
+
+  --core-status-positive: var(--solid-green);
+  --core-status-warning: var(--solid-yellow);
+  --core-status-negative: var(--solid-red);
+
+  --syntax-comment: var(--content-standard-tertiary);
+  --syntax-function: rgba(91, 89, 222, 1);
+  --syntax-variable: rgba(224, 136, 4, 1);
+  --syntax-string: rgba(50, 204, 88, 1);
+  --syntax-constant: rgb(5, 127, 255, 1);
+  --syntax-operator: rgb(183, 86, 232, 1);
+  --syntax-keyword: rgb(255, 50, 90, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --solid-translucent-red: rgba(255, 64, 53, 0.2);
+    --solid-translucent-orange: rgba(255, 154, 5, 0.2);
+    --solid-translucent-yellow: rgba(245, 201, 5, 0.2);
+    --solid-translucent-green: rgba(50, 204, 88, 0.2);
+    --solid-translucent-blue: rgba(5, 127, 255, 0.2);
+    --solid-translucent-indigo: rgba(91, 89, 222, 0.2);
+    --solid-translucent-purple: rgba(183, 86, 232, 0.2);
+    --solid-translucent-pink: rgba(255, 50, 90, 0.2);
+    --solid-translucent-brown: rgba(167, 137, 99, 0.2);
+    --solid-translucent-black: rgba(0, 0, 0, 0.2);
+    --solid-translucent-white: rgba(255, 255, 255, 0.2);
+
+    --backgroud-standard-primary: var(--solid-black);
+    --backgroud-standard-secondary: rgba(14, 14, 15, 1);
+
+    --backgroud-inverted-primary: var(--solid-white);
+    --backgroud-inverted-secondary: rgba(237, 238, 242, 1);
+
+    --content-standard-primary: rgba(244, 244, 245, 1);
+    --content-standard-secondary: rgba(244, 244, 245, 0.7);
+    --content-standard-tertiary: rgba(244, 244, 245, 0.5);
+    --content-standard-quaternary: rgba(244, 244, 245, 0.3);
+
+    --content-inverted-primary: rgba(32, 33, 40, 1);
+    --content-inverted-secondary: rgba(32, 33, 40, 0.6);
+    --content-inverted-tertiary: rgba(32, 33, 40, 0.4);
+    --content-inverted-quaternary: rgba(32, 33, 40, 0.2);
+
+    --line-divider: rgba(121, 123, 138, 0.32);
+    --line-outline: rgba(121, 123, 138, 0.24);
+
+    --components-fill-standard-primary: rgba(19, 19, 20, 1);
+    --components-fill-standard-secondary: rgba(22, 22, 23, 1);
+    --components-fill-standard-tertiary: rgba(27, 27, 29, 1);
+
+    --components-fill-inverted-primary: rgba(254, 254, 255, 1);
+    --components-fill-inverted-secondary: rgba(250, 250, 250, 1);
+    --components-fill-inverted-tertiary: rgba(254, 254, 255, 1);
+
+    --components-interactive-hover: rgba(244, 244, 245, 0.08);
+    --components-interactive-focused: rgba(244, 244, 245, 0.12);
+    --components-interactive-pressed: rgba(244, 244, 245, 0.16);
+
+    --components-translucent-primary: rgb(121, 124, 138, 0.2);
+    --components-translucent-secondary: rgba(121, 124, 138, 0.18);
+    --components-translucent-tertiary: rgba(121, 124, 138, 0.16);
+  }
+}
