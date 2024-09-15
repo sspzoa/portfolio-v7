@@ -118,6 +118,7 @@ const config: Config = {
       'radius-600': '16px',
       'radius-700': '20px',
       'radius-800': '24px',
+      'radius-full': '9999px',
     },
   },
   plugins: [],
