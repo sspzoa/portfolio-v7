@@ -7,21 +7,21 @@ import Link from 'next/link';
 
 export default function InfoBar() {
   return (
-    <div className="flex flex-col flex-shrink-0 p-spacing-800 pr-spacing-900 gap-spacing-800">
-      <div className="flex flex-col gap-spacing-300">
+    <div className="flex flex-col flex-shrink-0 p-spacing-800 md:pr-spacing-900 gap-spacing-800 items-center md:items-start">
+      <div className="flex flex-col gap-spacing-300 items-center md:items-start">
         <Image
-          className="rounded-radius-full"
+          className="rounded-radius-full border border-line-outline"
           src="/images/sspzoa_logo.svg"
           alt="sspzoa_logo"
           width={100}
           height={100}
         />
-        <div className="flex flex-col gap-spacing-100">
+        <div className="flex flex-col gap-spacing-100 items-center md:items-start">
           <strong className="text-title">Seungpyo Suh</strong>
           <span className="text-body text-content-standard-secondary">Mobile & Frontend Engineer</span>
         </div>
       </div>
-      <div className="flex flex-col gap-spacing-300">
+      <div className="flex flex-col gap-spacing-300 items-center md:items-start">
         <strong className="text-label text-content-standard-tertiary">Skills</strong>
         <div className="flex flex-row gap-spacing-500">
           <FlutterSvg />
@@ -30,26 +30,26 @@ export default function InfoBar() {
           <FastApiSvg />
         </div>
       </div>
-      <div className="flex flex-col gap-spacing-300">
+      <div className="flex flex-col gap-spacing-300 items-center md:items-start">
         <strong className="text-label text-content-standard-tertiary">About</strong>
         <div className="flex flex-col gap-spacing-400">
-          <div className="flex flex-row items-center gap-spacing-400">
-            <span className="text-label text-content-standard-tertiary">2024.03~</span>
-            <div className="flex flex-col">
+          <div className="flex flex-row items-center">
+            <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2024.03~</span>
+            <div className="flex flex-col gap-spacing-100">
               <span className="text-label">Project Manager</span>
               <span className="text-footnote text-content-standard-secondary">DIN(딘)</span>
             </div>
           </div>
-          <div className="flex flex-row items-center gap-spacing-400">
-            <span className="text-label text-content-standard-tertiary">2024.03~</span>
-            <div className="flex flex-col">
+          <div className="flex flex-row items-center">
+            <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2023.10~</span>
+            <div className="flex flex-col gap-spacing-100">
               <span className="text-label">App Developer</span>
               <span className="text-footnote text-content-standard-secondary">Dimipay(디미페이)</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-spacing-300 flex-grow justify-end">
+      <div className="flex flex-col gap-spacing-300 flex-grow justify-end items-center md:items-start">
         <strong className="text-label text-content-standard-tertiary">Contact</strong>
         <div className="flex flex-col gap-spacing-200">
           <Link href="mailto:me@sspzoa.io" className="flex flex-row items-center gap-spacing-200">

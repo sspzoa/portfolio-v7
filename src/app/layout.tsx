@@ -9,12 +9,12 @@ const WantedSansVariable = localFont({
       path: './fonts/WantedSansVariable.woff2',
     },
   ],
-  variable: '--font-suit',
+  variable: '--font-WantedSansVariable',
 });
 
 export const metadata: Metadata = {
   title: "sspzoa's Portfolio",
-  description: "I'm a Mobile/Frontend Developer, passionate about creating and learning.",
+  description: "I'm a Mobile & Frontend Engineer, passionate about creating and learning.",
   openGraph: {
     images: [{ url: 'https://sspzoa.io/images/og-image.png' }],
   },
