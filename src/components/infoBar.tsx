@@ -1,4 +1,4 @@
-import { AndroidSvg, FastApiSvg, FlutterSvg, ReactSvg } from '@/resources/svg';
+import { AndroidSvg, FastApiSvg, FlutterSvg, NextSvg } from '@/resources/svg';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +26,7 @@ export default function InfoBar() {
         <div className="flex flex-row gap-spacing-500">
           <FlutterSvg />
           <AndroidSvg />
-          <ReactSvg />
+          <NextSvg />
           <FastApiSvg />
         </div>
       </div>

@@ -1,6 +1,6 @@
 export function FlutterSvg() {
   return (
-    <>
+    <div title="Flutter">
       {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
       <svg width="32" height="32" viewBox="0 0 214 264" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -16,13 +16,13 @@ export function FlutterSvg() {
           fill="var(--content-standard-primary)"
         />
       </svg>
-    </>
+    </div>
   );
 }
 
 export function AndroidSvg() {
   return (
-    <>
+    <div title="Android">
       {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
       <svg width="32" height="32" viewBox="0 0 674 393" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -38,29 +38,54 @@ export function AndroidSvg() {
           fill="var(--content-inverted-primary)"
         />
       </svg>
-    </>
+    </div>
   );
 }
 
-export function ReactSvg() {
+export function NextSvg() {
   return (
-    <>
-      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
-        <title>React Logo</title>
-        <circle cx="0" cy="0" r="2.05" fill="var(--content-standard-primary)" />
-        <g stroke="var(--content-standard-primary)" stroke-width="1" fill="none">
-          <ellipse rx="11" ry="4.2" />
-          <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-          <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-        </g>
+    <div title="Next.js">
+      {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
+      <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M128 256C198.692 256 256 198.692 256 128C256 57.3075 198.692 0 128 0C57.3075 0 0 57.3075 0 128C0 198.692 57.3075 256 128 256Z"
+          fill="var(--content-standard-primary)"
+        />
+        <path
+          d="M212.63 224.03L98.34 76.8H76.8V179.16H94.03V98.68L199.11 234.45C203.85 231.27 208.37 227.79 212.63 224.03Z"
+          fill="url(#paint0_linear_23_50)"
+        />
+        <path d="M180.63 76.8H163.56V179.2H180.63V76.8Z" fill="url(#paint1_linear_23_50)" />
+        <defs>
+          <linearGradient
+            id="paint0_linear_23_50"
+            x1="132.707"
+            y1="181.561"
+            x2="178.076"
+            y2="237.79"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="var(--content-inverted-primary)" />
+            <stop offset="1" stop-color="var(--content-inverted-primary)" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_23_50"
+            x1="172.083"
+            y1="76.7712"
+            x2="171.776"
+            y2="151.973"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="var(--content-inverted-primary)" />
+            <stop offset="1" stop-color="var(--content-inverted-primary)" stop-opacity="0" />
+          </linearGradient>
+        </defs>
       </svg>
-    </>
+    </div>
   );
 }
 
 export function FastApiSvg() {
   return (
-    <>
+    <div title="FastApi">
       {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
       <svg width="32" height="32" viewBox="0 0 535 534" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -68,6 +93,6 @@ export function FastApiSvg() {
           fill="var(--content-standard-primary)"
         />
       </svg>
-    </>
+    </div>
   );
 }
