@@ -5,9 +5,9 @@ on:
     branches: [ main ]
 
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/${{ github.repository_id }}
+  DOCKER_IMAGE: ghcr.io/${{ github.repository }}
   VERSION: ${{ github.sha }}
-  NAME: ${{ github.repository_id }}_cicd
+  NAME: ${{ github.repository }}_cicd
 
 jobs:
   build:
@@ -54,6 +54,6 @@ jobs:
       - name: Docker run
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 3000:3000 --name ${{ github.repository_id }}_cicd --restart always \
+          docker run -d -p 3000:3000 --name ${{ github.repository_name }}_cicd --restart always \
             -e NOTION_API_KEY=${{ secrets.NOTION_API_KEY }} \
             ${{ env.DOCKER_IMAGE }}:latest
