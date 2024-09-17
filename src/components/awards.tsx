@@ -8,7 +8,7 @@ export default function Awards() {
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Awards</strong>
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-spacing-400">
+      <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
         {data.results.map((award: Award) => {
           const name = award?.properties?.name?.title[0]?.plain_text;
           const description = award?.properties?.description?.rich_text[0]?.plain_text;

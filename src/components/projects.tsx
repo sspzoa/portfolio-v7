@@ -8,7 +8,7 @@ export default function Projects() {
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Projects</strong>
-      <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-spacing-400">
+      <div className="grid lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
         {data.results.map((project: Project) => {
           const icon = project?.icon?.file?.url;
           const cover = project?.cover?.file?.url;

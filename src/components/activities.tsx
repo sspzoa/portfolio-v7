@@ -8,7 +8,7 @@ export default function Activities() {
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Activities</strong>
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-spacing-400">
+      <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
         {data.results.map((activity: Activity) => {
           const name = activity?.properties?.name?.title[0]?.plain_text;
           const hosts = activity?.properties?.host?.multi_select.map((item) => item.name).join(', ');
