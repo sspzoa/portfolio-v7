@@ -1,7 +1,9 @@
 import { use } from 'react';
 
+const PROJECTS_DATABASE_ID = 'c47cae2234124b8abf20e1ec41f864e0';
+
 async function fetchProjects() {
-  const res = await fetch(`https://api.notion.com/v1/databases/${process.env.PROJECTS_DATABASE_ID}/query`, {
+  const res = await fetch(`https://api.notion.com/v1/databases/${PROJECTS_DATABASE_ID}/query`, {
     method: 'POST',
     cache: 'no-cache',
     headers: {

@@ -1,7 +1,9 @@
 import { use } from 'react';
 
+const AWARDS_DATABASE_ID = 'e01e1b8eb9ac45049db60a8b0e91523c';
+
 async function fetchAwards() {
-  const res = await fetch(`https://api.notion.com/v1/databases/${process.env.AWARDS_DATABASE_ID}/query`, {
+  const res = await fetch(`https://api.notion.com/v1/databases/${AWARDS_DATABASE_ID}/query`, {
     method: 'POST',
     cache: 'no-cache',
     headers: {
