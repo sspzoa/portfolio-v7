@@ -54,6 +54,6 @@ jobs:
       - name: Docker run
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 8000:8000 --name go_cicd --restart always \
+          docker run -d -p 3000:3000 --name go_cicd --restart always \
             -e NOTION_API_KEY=${{ secrets.NOTION_API_KEY }} \
             ${{ env.DOCKER_IMAGE }}:latest
