@@ -7,7 +7,7 @@ on:
 env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/${{ github.repository_id }}
   VERSION: ${{ github.sha }}
-  NAME: ${{ github.repository.id }}_cicd
+  NAME: ${{ github.repository_id }}_cicd
 
 jobs:
   build:
