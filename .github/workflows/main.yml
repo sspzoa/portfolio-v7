@@ -7,7 +7,7 @@ on:
 env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/portfolio-v7
   VERSION: ${{ github.sha }}
-  NAME: go_cicd
+  NAME: portfolio_cicd
 
 jobs:
   build:
