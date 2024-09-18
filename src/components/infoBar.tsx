@@ -52,7 +52,9 @@ export default function InfoBar() {
       <div className="flex flex-col gap-spacing-300 flex-grow justify-end items-center md:items-start">
         <strong className="text-label text-content-standard-tertiary">Contact</strong>
         <div className="flex flex-col gap-spacing-200">
-          <Link href="mailto:me@sspzoa.io" className="flex flex-row items-center gap-spacing-200">
+          <Link
+            href="mailto:me@sspzoa.io"
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
             <FontAwesomeIcon icon={faEnvelope} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">me@sspzoa.io</span>
           </Link>
@@ -60,7 +62,7 @@ export default function InfoBar() {
             href="https://github.com/sspzoa"
             target="_blank"
             rel="noreferrer"
-            className="flex flex-row items-center gap-spacing-200">
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
             <FontAwesomeIcon icon={faGithub} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">sspzoa</span>
           </Link>
@@ -68,7 +70,7 @@ export default function InfoBar() {
             href="https://www.linkedin.com/in/seungpyosuh/"
             target="_blank"
             rel="noreferrer"
-            className="flex flex-row items-center gap-spacing-200">
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
             <FontAwesomeIcon icon={faLinkedin} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">seungpyosuh</span>
           </Link>

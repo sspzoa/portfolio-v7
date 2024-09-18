@@ -22,7 +22,7 @@ export default function Projects() {
               href={public_url || '#'}
               target="_blank"
               rel="noreferrer"
-              className="bg-components-fill-standard-primary border border-line-outline rounded-radius-600 ease-in-out duration-500 hover:-translate-y-[8px]">
+              className="bg-components-fill-standard-primary border border-line-outline rounded-radius-600 ease-in-out duration-500 hover:bg-components-interactive-hover">
               <img
                 src={cover || '/images/og-image.png'}
                 alt={`${name || 'Not Available'} cover`}
