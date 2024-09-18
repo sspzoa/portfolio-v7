@@ -22,12 +22,14 @@ export default function Projects() {
               href={public_url || '#'}
               target="_blank"
               rel="noreferrer"
-              className="bg-components-fill-standard-primary border border-line-outline rounded-radius-600 ease-in-out duration-500 hover:bg-components-interactive-hover">
-              <img
-                src={cover || '/images/og-image.png'}
-                alt={`${name || 'Not Available'} cover`}
-                className="w-full aspect-video rounded-t-radius-600 object-cover"
-              />
+              className="group bg-components-fill-standard-primary border border-line-outline rounded-radius-600 ease-in-out duration-500 hover:bg-components-interactive-hover">
+              <div className="relative">
+                <img
+                  src={cover || '/images/og-image.png'}
+                  alt={`${name || 'Not Available'} cover`}
+                  className="w-full aspect-video rounded-t-radius-600 object-cover transition-opacity duration-500 group-hover:opacity-50"
+                />
+              </div>
               <div className="flex flex-row p-spacing-300 w-full gap-spacing-300 items-center border-t border-t-line-divider">
                 <img
                   src={icon || '/images/sspzoa_logo.png'}
