@@ -1,6 +1,7 @@
 import Footer from '@/components/footer';
 import Activities from '@/components/grids/activities';
 import Awards from '@/components/grids/awards';
+import Certificates from '@/components/grids/certificates';
 import Contributions from '@/components/grids/contributions';
 import Projects from '@/components/grids/projects';
 
@@ -10,6 +11,7 @@ export default function PortfolioGrid() {
       <Contributions />
       <Awards />
       <Projects />
+      <Certificates />
       <Activities />
       <Footer />
     </div>
