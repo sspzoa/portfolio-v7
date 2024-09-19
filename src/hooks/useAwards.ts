@@ -5,7 +5,7 @@ const AWARDS_DATABASE_ID = 'e01e1b8eb9ac45049db60a8b0e91523c';
 async function fetchAwards() {
   const res = await fetch(`https://api.notion.com/v1/databases/${AWARDS_DATABASE_ID}/query`, {
     method: 'POST',
-    cache: 'no-cache',
+    next: { revalidate: 3600 },
     headers: {
       Accept: 'application/json',
       'Notion-Version': '2022-02-22',
