@@ -4,11 +4,10 @@ import GitHubCalendar from 'react-github-calendar';
 export default function Contributions() {
   return (
     <div className="flex flex-col gap-spacing-300">
-      <div className="flex flex-row gap-spacing-400 items-center">
+      <div className="flex flex-col md:flex-row gap-spacing-300 md:gap-spacing-400">
         <strong className="text-label text-content-standard-tertiary">Contributions</strong>
         <span className="text-label text-content-standard-quaternary">
-          CSAT preparation period: <br className="md:hidden" />
-          Jan 1 - Nov 19, 2025
+          CSAT preparation period: Jan 1 - Nov 19, 2025
         </span>
       </div>
       <Link
