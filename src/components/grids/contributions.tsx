@@ -4,7 +4,10 @@ import GitHubCalendar from 'react-github-calendar';
 export default function Contributions() {
   return (
     <div className="flex flex-col gap-spacing-300">
-      <strong className="text-label text-content-standard-tertiary">Contributions</strong>
+      <div className="flex flex-row gap-spacing-400">
+        <strong className="text-label text-content-standard-tertiary">Contributions</strong>
+        <strong className="text-label text-solid-red">No commits: Jan 1 - Nov 19, 2025</strong>
+      </div>
       <Link
         target="_blank"
         rel="noreferrer"
