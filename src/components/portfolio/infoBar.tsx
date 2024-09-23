@@ -12,6 +12,7 @@ export default function InfoBar() {
         <Image
           className="rounded-radius-full border border-line-outline"
           src="/images/sspzoa_logo.svg"
+          draggable={false}
           alt="sspzoa_logo"
           width={100}
           height={100}
@@ -61,7 +62,7 @@ export default function InfoBar() {
           <Link
             href="https://github.com/sspzoa"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener"
             className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
             <FontAwesomeIcon icon={faGithub} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">sspzoa</span>
@@ -69,7 +70,7 @@ export default function InfoBar() {
           <Link
             href="https://www.linkedin.com/in/seungpyosuh/"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer noopener"
             className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
             <FontAwesomeIcon icon={faLinkedin} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">seungpyosuh</span>

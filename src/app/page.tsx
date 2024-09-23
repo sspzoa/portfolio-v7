@@ -1,6 +1,7 @@
 import LandingPage from '@/components/landing/landingPage';
 import InfoBar from '@/components/portfolio/infoBar';
 import PortfolioGrid from '@/components/portfolio/portfolioGrid';
+import PortfolioPage from '@/components/portfolio/portfolioPage';
 import { headers } from 'next/headers';
 
 export default function Home() {
@@ -15,10 +16,7 @@ function Portfolio() {
   return (
     <>
       <title>sspzoa&apos; Portfolio</title>
-      <div className="w-full flex flex-col md:flex-row h-screen">
-        <InfoBar />
-        <PortfolioGrid />
-      </div>
+      <PortfolioPage />
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function Footer() {
         className="ease-in-out duration-500 hover:opacity-50"
         href="https://github.com/sspzoa"
         target="_blank"
-        rel="noreferrer">
+        rel="noreferrer noopener">
         sspzoa
       </Link>
       . All rights reserved.
@@ -20,7 +20,7 @@ export default function Footer() {
         className="ease-in-out duration-500 hover:opacity-50"
         href="https://www.figma.com/community/file/1396574400107385980"
         target="_blank"
-        rel="noreferrer">
+        rel="noreferrer noopener">
         단아
       </Link>
       . / Inspired by{' '}
@@ -28,7 +28,7 @@ export default function Footer() {
         className="ease-in-out duration-500 hover:opacity-50"
         href="https://github.com/krisamin"
         target="_blank"
-        rel="noreferrer">
+        rel="noreferrer noopener">
         noViceMin
       </Link>
       .

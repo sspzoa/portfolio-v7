@@ -21,7 +21,7 @@ export default function Awards() {
               key={award.id}
               href={public_url || '#'}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className="flex flex-row items-center bg-components-fill-standard-primary rounded-radius-600 border border-line-outline p-spacing-400 ease-in-out duration-500 hover:bg-components-interactive-hover">
               <span className="text-label text-content-standard-tertiary w-[65px] flex-shrink-0">
                 {formattedDate || 'Not Available'}
