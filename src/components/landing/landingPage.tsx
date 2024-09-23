@@ -4,7 +4,7 @@ import type React from 'react';
 export default function LandingPage() {
   const currentYear = new Date().getFullYear();
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-between">
+    <div className="w-full h-[100dvh] flex flex-col items-center justify-between">
       <div className="flex-grow flex items-center justify-center">
         <div className="flex flex-col gap-spacing-700 justify-center items-center">
           <div className="flex flex-col gap-spacing-550 md:gap-spacing-850 justify-center items-center">
