@@ -7,8 +7,7 @@ import { headers } from 'next/headers';
 export default function Home() {
   const headersList = headers();
   const hostname = headersList.get('host') || '';
-  // const isPortfolio = hostname === 'portfolio.sspzoa.io' || hostname === 'localhost:3000';
-  const isPortfolio = false;
+  const isPortfolio = hostname === 'portfolio.sspzoa.io' || hostname === 'localhost:3000';
 
   return isPortfolio ? <Portfolio /> : <Landing />;
 }
