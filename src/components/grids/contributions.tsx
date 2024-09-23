@@ -13,7 +13,7 @@ export default function Contributions() {
           className="flex justify-center items-center bg-components-fill-standard-primary p-spacing-400 rounded-radius-600 transition-all duration-500 group-hover:blur-xl">
           <GitHubCalendar username="sspzoa" />
         </Link>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="w-full flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
           <strong className="text-solid-red text-body text-nowrap">No commits: Jan 1 - Nov 19, 2025.</strong>
         </div>
       </div>
