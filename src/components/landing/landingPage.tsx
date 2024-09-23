@@ -15,7 +15,11 @@ export default function LandingPage() {
       <div className="flex-grow flex items-center justify-center">
         <div className="flex flex-col gap-spacing-700 justify-center items-center">
           <div className="flex flex-row gap-spacing-700 justify-center">
-            <Link className="ease-in-out duration-500 hover:opacity-50" href="https://portfolio.sspzoa.io">
+            <Link
+              className="ease-in-out duration-500 hover:opacity-50"
+              href="https://portfolio.sspzoa.io"
+              target="_blank"
+              rel="noreferrer noopener">
               <Image
                 className="rounded-[40px] shadow-[#6d87a8] shadow-2xl"
                 draggable={false}
