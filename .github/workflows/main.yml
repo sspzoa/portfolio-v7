@@ -1,8 +1,8 @@
 name: CI/CD Docker
 
-on:
-  push:
-    branches: [ main ]
+#on:
+#  push:
+#    branches: [ main ]
 
 env:
   DOCKER_IMAGE: ghcr.io/${{ github.repository }}
