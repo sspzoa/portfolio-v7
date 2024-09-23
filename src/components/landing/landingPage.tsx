@@ -1,11 +1,17 @@
+import { ArrowSvg } from '@/resources/svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import type React from 'react';
 
-interface BoxProps {
-  children: React.ReactNode;
-  blocks?: number;
-  href?: string;
+function ClickArrow() {
+  return (
+    <div className="opacity-80 w-[90px] md:w-[130px] flex flex-col justify-between items-stretch gap-spacing-100 md:gap-spacing-200">
+      <span className="text-title self-start">Click This!</span>
+      <div className="self-end">
+        <ArrowSvg />
+      </div>
+    </div>
+  );
 }
 
 export default function LandingPage() {
@@ -14,21 +20,25 @@ export default function LandingPage() {
     <div className="w-full h-screen flex flex-col items-center justify-between">
       <div className="flex-grow flex items-center justify-center">
         <div className="flex flex-col gap-spacing-700 justify-center items-center">
-          <div className="flex flex-row gap-spacing-700 justify-center">
-            <Link
-              className="ease-in-out duration-500 hover:opacity-50"
-              href="https://portfolio.sspzoa.io"
-              target="_blank"
-              rel="noreferrer noopener">
-              <Image
-                className="rounded-[40px] shadow-[#6d87a8] shadow-2xl"
-                draggable={false}
-                src="/images/sspzoa_logo.svg"
-                alt="sspzoa"
-                width={160}
-                height={160}
-              />
-            </Link>
+          <div className="relative">
+            <div className="absolute left-[-64px] md:top-[64px] transform -translate-y-1/2 font-shadows">
+              <ClickArrow />
+            </div>
+            <div className="flex flex-col gap-spacing-550 md:gap-spacing-850 justify-center items-center">
+              <Link className="ease-in-out duration-500 hover:opacity-50" href="https://portfolio.sspzoa.io">
+                <Image
+                  className="w-[128px] h-[128px] md:w-[256px] md:h-[256px] rounded-[32px] md:rounded-[64px] shadow-[#6d87a8] shadow-2xl"
+                  draggable={false}
+                  src="/images/sspzoa_logo.svg"
+                  alt="sspzoa"
+                  width={256}
+                  height={256}
+                />
+              </Link>
+              <strong className="text-title md:text-display">
+                sspzoa <span className="text-content-standard-tertiary">Seungpyo Suh</span>
+              </strong>
+            </div>
           </div>
         </div>
       </div>
