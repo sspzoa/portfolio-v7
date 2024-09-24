@@ -1,13 +1,11 @@
 import LandingPage from '@/components/landing/landingPage';
-import InfoBar from '@/components/portfolio/infoBar';
-import PortfolioGrid from '@/components/portfolio/portfolioGrid';
 import PortfolioPage from '@/components/portfolio/portfolioPage';
 import { headers } from 'next/headers';
 
 export default function Home() {
   const headersList = headers();
   const hostname = headersList.get('host') || '';
-  const isPortfolio = hostname === 'portfolio.sspzoa.io' || hostname === 'localhost:3000';
+  const isPortfolio = hostname === 'portfolio.sspzoa.io';
 
   return isPortfolio ? <Portfolio /> : <Landing />;
 }
