@@ -35,7 +35,7 @@ export default function LandingPage() {
                 <Image
                   className="w-[64px] h-[64px] md:w-[128px] md:h-[128px] rounded-[25%] shadow-[#007EBB] shadow-2xl"
                   draggable={false}
-                  src="/images/linkedin-icon.svg"
+                  src="/images/linkedIn-icon.svg"
                   alt="LinkedIn"
                   width={128}
                   height={128}
