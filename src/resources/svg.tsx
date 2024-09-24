@@ -103,7 +103,7 @@ export function GithubSvg() {
       {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
       <svg
         fill="var(--content-standard-primary)"
-        className="w-[64px] h-[64px] md:w-[128px] md:h-[128px] rounded-[16px] md:rounded-[32px] "
+        className="w-[64px] h-[64px] md:w-[128px] md:h-[128px] rounded-[25%]"
         xmlns="http://www.w3.org/2000/svg"
         width="256"
         height="256"
