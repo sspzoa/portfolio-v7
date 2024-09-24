@@ -8,7 +8,11 @@ export default function LandingPage() {
       <div className="flex-grow flex items-center justify-center">
         <div className="flex flex-col gap-spacing-700 justify-center items-center">
           <div className="flex flex-col gap-spacing-550 md:gap-spacing-850 justify-center items-center">
-            <Link className="ease-in-out duration-500 hover:opacity-50" href="https://portfolio.sspzoa.io">
+            <Link
+              className="ease-in-out duration-500 hover:opacity-50"
+              href="https://portfolio.sspzoa.io"
+              target="_blank"
+              rel="noreferrer noopener">
               <Image
                 className="w-[128px] h-[128px] md:w-[256px] md:h-[256px] rounded-[32px] md:rounded-[64px] shadow-[#6d87a8] shadow-2xl"
                 draggable={false}
