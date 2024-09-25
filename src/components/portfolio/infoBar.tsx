@@ -38,14 +38,39 @@ export default function InfoBar() {
             <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2024.03~</span>
             <div className="flex flex-col gap-spacing-100">
               <span className="text-label">Project Manager</span>
-              <span className="text-footnote text-content-standard-secondary">DIN(딘)</span>
+              <Link
+                href="https://github.com/dimigo-din"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ease-in-out duration-500 hover:opacity-50 text-footnote text-content-standard-secondary">
+                DIN
+              </Link>
             </div>
           </div>
           <div className="flex flex-row items-center">
             <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2023.10~</span>
             <div className="flex flex-col gap-spacing-100">
               <span className="text-label">App Developer</span>
-              <span className="text-footnote text-content-standard-secondary">Dimipay(디미페이)</span>
+              <Link
+                href="https://github.com/dimipay"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ease-in-out duration-500 hover:opacity-50 text-footnote text-content-standard-secondary">
+                DIMIPAY
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-row items-center">
+            <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2023.3~</span>
+            <div className="flex flex-col gap-spacing-100">
+              <span className="text-label">해킹방어과</span>
+              <Link
+                href="https://www.dimigo.hs.kr/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="ease-in-out duration-500 hover:opacity-50 text-footnote text-content-standard-secondary">
+                한국디지털미디어고등학교
+              </Link>
             </div>
           </div>
         </div>
