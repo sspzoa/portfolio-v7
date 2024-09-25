@@ -21,6 +21,20 @@ export default function LandingPage() {
                 />
               </Link>
               <Link
+                className="ease-in-out duration-500 hover:opacity-50"
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://discord.com/users/416804424275722240">
+                <Image
+                  className="w-[64px] h-[64px] md:w-[128px] md:h-[128px] rounded-[25%] shadow-[#5865F2] shadow-2xl"
+                  draggable={false}
+                  src="/images/discord-icon.svg"
+                  alt="Discord"
+                  width={128}
+                  height={128}
+                />
+              </Link>
+              <Link
                 className="ease-in-out duration-500 hover:opacity-50 rounded-[25%] shadow-content-standard-primary shadow-2xl"
                 target="_blank"
                 rel="noreferrer noopener"

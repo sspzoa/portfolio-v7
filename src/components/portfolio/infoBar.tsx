@@ -1,5 +1,5 @@
 import { AndroidSvg, FastApiSvg, FlutterSvg, NextSvg } from '@/resources/svg';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
@@ -78,6 +78,14 @@ export default function InfoBar() {
       <div className="flex flex-col gap-spacing-300 flex-grow justify-end items-center md:items-start">
         <strong className="text-label text-content-standard-tertiary">Contact</strong>
         <div className="flex flex-col gap-spacing-200">
+          <Link
+            href="https://discord.com/users/416804424275722240"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
+            <FontAwesomeIcon icon={faDiscord} className="w-[14px] h-[14px]" />
+            <span className="text-label text-content-standard-secondary">sspzoa</span>
+          </Link>
           <Link
             href="mailto:me@sspzoa.io"
             className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
