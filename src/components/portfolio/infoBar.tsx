@@ -61,7 +61,7 @@ export default function InfoBar() {
             </div>
           </div>
           <div className="flex flex-row items-center">
-            <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2023.3~</span>
+            <span className="text-label text-content-standard-tertiary w-[75px] flex-shrink-0">2023.03~</span>
             <div className="flex flex-col gap-spacing-100">
               <span className="text-label">해킹방어과</span>
               <Link
