@@ -6,5 +6,6 @@ export interface Project {
   properties: {
     name?: { title: { plain_text: string }[] };
     description?: { rich_text: { plain_text: string }[] };
+    isSideProject: { checkbox: boolean };
   };
 }
