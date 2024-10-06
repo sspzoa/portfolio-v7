@@ -70,7 +70,7 @@ export default function LandingPage() {
             href="https://github.com/sspzoa"
             target="_blank"
             rel="noreferrer noopener">
-            sspzoa
+            <strong>sspzoa</strong>
           </Link>
           . All rights reserved.
         </span>
