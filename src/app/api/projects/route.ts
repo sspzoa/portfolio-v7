@@ -5,6 +5,7 @@ const PROJECTS_DATABASE_ID = 'c47cae2234124b8abf20e1ec41f864e0';
 export async function GET() {
   const res = await fetch(`https://api.notion.com/v1/databases/${PROJECTS_DATABASE_ID}/query`, {
     method: 'POST',
+    cache: 'no-cache',
     headers: {
       Accept: 'application/json',
       'Notion-Version': '2022-02-22',
