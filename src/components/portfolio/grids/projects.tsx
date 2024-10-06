@@ -39,6 +39,7 @@ export default function Projects() {
         className="bg-components-fill-standard-primary border border-line-outline rounded-radius-600 ease-in-out duration-300 hover:opacity-50">
         <div className="relative">
           <img
+            draggable={false}
             src={cover || '/images/og-image.png'}
             alt={`${name || 'Not Available'} cover`}
             width={500}
@@ -48,6 +49,7 @@ export default function Projects() {
         </div>
         <div className="flex flex-row p-spacing-300 w-full gap-spacing-300 items-center border-t border-t-line-divider">
           <img
+            draggable={false}
             src={icon || '/images/sspzoa_logo.png'}
             alt={`${name || 'Not Available'} icon`}
             width={44}
