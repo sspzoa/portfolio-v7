@@ -1,30 +1,29 @@
-import { use } from 'react';
-
-const ACTIVITIES_DATABASE_ID = '9ada0cfa5510493ea8f5a3be2b8b516a';
-
-async function fetchActivities() {
-  const res = await fetch(`https://api.notion.com/v1/databases/${ACTIVITIES_DATABASE_ID}/query`, {
-    method: 'POST',
-    cache: 'no-cache',
-    headers: {
-      Accept: 'application/json',
-      'Notion-Version': '2022-02-22',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-    },
-    body: JSON.stringify({
-      sorts: [
-        {
-          property: 'date',
-          direction: 'descending',
-        },
-      ],
-    }),
-  });
-
-  return await res.json();
-}
+import type { Activity } from '@/types/Activity';
+import { useEffect, useState } from 'react';
 
 export function useActivities() {
-  return use(fetchActivities());
+  const [activities, setActivities] = useState<Activity[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    async function fetchActivities() {
+      try {
+        const response = await fetch('/api/activities');
+        if (!response.ok) {
+          throw new Error('Failed to fetch activities');
+        }
+        const data = await response.json();
+        setActivities(data.results);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('An error occurred'));
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchActivities();
+  }, []);
+
+  return { activities, loading, error };
 }

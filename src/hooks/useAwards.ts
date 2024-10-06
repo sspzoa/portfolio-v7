@@ -1,30 +1,29 @@
-import { use } from 'react';
-
-const AWARDS_DATABASE_ID = 'e01e1b8eb9ac45049db60a8b0e91523c';
-
-async function fetchAwards() {
-  const res = await fetch(`https://api.notion.com/v1/databases/${AWARDS_DATABASE_ID}/query`, {
-    method: 'POST',
-    cache: 'no-cache',
-    headers: {
-      Accept: 'application/json',
-      'Notion-Version': '2022-02-22',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-    },
-    body: JSON.stringify({
-      sorts: [
-        {
-          property: 'date',
-          direction: 'descending',
-        },
-      ],
-    }),
-  });
-
-  return await res.json();
-}
+import type { Award } from '@/types/Award';
+import { useEffect, useState } from 'react';
 
 export function useAwards() {
-  return use(fetchAwards());
+  const [awards, setAwards] = useState<Award[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    async function fetchAwards() {
+      try {
+        const response = await fetch('/api/awards');
+        if (!response.ok) {
+          throw new Error('Failed to fetch awards');
+        }
+        const data = await response.json();
+        setAwards(data.results);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('An error occurred'));
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchAwards();
+  }, []);
+
+  return { awards, loading, error };
 }

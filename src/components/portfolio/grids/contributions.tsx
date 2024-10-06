@@ -14,7 +14,7 @@ export default function Contributions() {
         target="_blank"
         rel="noreferrer noopener"
         href="https://github.com/sspzoa"
-        className="flex justify-center items-center bg-components-fill-standard-primary p-spacing-400 rounded-radius-600 ease-in-out duration-500 hover:bg-components-interactive-hover">
+        className="flex justify-center items-center bg-components-fill-standard-primary p-spacing-400 rounded-radius-600 ease-in-out duration-300 hover:opacity-50">
         <GitHubCalendar username="sspzoa" />
       </Link>
     </div>

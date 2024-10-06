@@ -42,7 +42,7 @@ export default function InfoBar() {
                 href="https://github.com/dimigo-din"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="ease-in-out duration-500 hover:opacity-50 text-footnote text-content-standard-secondary">
+                className="ease-in-out duration-300 hover:opacity-50 text-footnote text-content-standard-secondary">
                 DIN
               </Link>
             </div>
@@ -55,7 +55,7 @@ export default function InfoBar() {
                 href="https://github.com/dimipay"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="ease-in-out duration-500 hover:opacity-50 text-footnote text-content-standard-secondary">
+                className="ease-in-out duration-300 hover:opacity-50 text-footnote text-content-standard-secondary">
                 DIMIPAY
               </Link>
             </div>
@@ -68,7 +68,7 @@ export default function InfoBar() {
                 href="https://www.dimigo.hs.kr/"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="ease-in-out duration-500 hover:opacity-50 text-footnote text-content-standard-secondary">
+                className="ease-in-out duration-300 hover:opacity-50 text-footnote text-content-standard-secondary">
                 한국디지털미디어고등학교
               </Link>
             </div>
@@ -82,13 +82,13 @@ export default function InfoBar() {
             href="https://discord.com/users/416804424275722240"
             target="_blank"
             rel="noreferrer noopener"
-            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-300 hover:opacity-50">
             <FontAwesomeIcon icon={faDiscord} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">sspzoa</span>
           </Link>
           <Link
             href="mailto:me@sspzoa.io"
-            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-300 hover:opacity-50">
             <FontAwesomeIcon icon={faEnvelope} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">me@sspzoa.io</span>
           </Link>
@@ -96,7 +96,7 @@ export default function InfoBar() {
             href="https://github.com/sspzoa"
             target="_blank"
             rel="noreferrer noopener"
-            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-300 hover:opacity-50">
             <FontAwesomeIcon icon={faGithub} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">sspzoa</span>
           </Link>
@@ -104,7 +104,7 @@ export default function InfoBar() {
             href="https://www.linkedin.com/in/seungpyosuh/"
             target="_blank"
             rel="noreferrer noopener"
-            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-500 hover:opacity-50">
+            className="flex flex-row items-center gap-spacing-200 ease-in-out duration-300 hover:opacity-50">
             <FontAwesomeIcon icon={faLinkedin} className="w-[14px] h-[14px]" />
             <span className="text-label text-content-standard-secondary">seungpyosuh</span>
           </Link>

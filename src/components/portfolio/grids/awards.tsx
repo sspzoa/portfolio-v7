@@ -1,15 +1,20 @@
+'use client';
+
 import { useAwards } from '@/hooks/useAwards';
 import type { Award } from '@/types/Award';
 import Link from 'next/link';
 
 export default function Awards() {
-  const data = useAwards();
+  const { awards, loading, error } = useAwards();
+
+  if (loading) return <div>Loading awards...</div>;
+  if (error) return <div>Error loading awards: {error.message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Awards</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
-        {data.results.map((award: Award) => {
+        {awards.map((award: Award) => {
           const name = award?.properties?.name?.title[0]?.plain_text;
           const description = award?.properties?.description?.rich_text[0]?.plain_text;
           const date = award?.properties?.date?.date?.start;
@@ -22,7 +27,7 @@ export default function Awards() {
               href={public_url || '#'}
               target="_blank"
               rel="noreferrer noopener"
-              className="flex flex-row items-center bg-components-fill-standard-primary rounded-radius-600 border border-line-outline p-spacing-400 ease-in-out duration-500 hover:bg-components-interactive-hover">
+              className="flex flex-row items-center bg-components-fill-standard-primary rounded-radius-600 border border-line-outline p-spacing-400 ease-in-out duration-300 hover:opacity-50">
               <span className="text-label text-content-standard-tertiary w-[65px] flex-shrink-0">
                 {formattedDate || 'Not Available'}
               </span>
