@@ -64,8 +64,8 @@ export function NextSvg() {
             x2="178.076"
             y2="237.79"
             gradientUnits="userSpaceOnUse">
-            <stop stop-color="var(--content-inverted-primary)" />
-            <stop offset="1" stop-color="var(--content-inverted-primary)" stop-opacity="0" />
+            <stop stopColor="var(--content-inverted-primary)" />
+            <stop offset="1" stopColor="var(--content-inverted-primary)" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_23_50"
@@ -74,8 +74,8 @@ export function NextSvg() {
             x2="171.776"
             y2="151.973"
             gradientUnits="userSpaceOnUse">
-            <stop stop-color="var(--content-inverted-primary)" />
-            <stop offset="1" stop-color="var(--content-inverted-primary)" stop-opacity="0" />
+            <stop stopColor="var(--content-inverted-primary)" />
+            <stop offset="1" stopColor="var(--content-inverted-primary)" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
