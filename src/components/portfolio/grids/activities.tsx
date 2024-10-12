@@ -1,12 +1,43 @@
 'use client';
 
 import { DefaultSkeleton } from '@/components/portfolio/skeleton';
-import { useActivities } from '@/hooks/useActivities';
+import {
+  activitiesErrorState,
+  activitiesLoadingState,
+  activitiesSelector,
+  activitiesState,
+} from '@/states/activitiesState';
 import type { Activity } from '@/types/Activity';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Activities() {
-  const { activities, loading, error } = useActivities();
+  const setActivities = useSetRecoilState(activitiesState);
+  const setLoading = useSetRecoilState(activitiesLoadingState);
+  const setError = useSetRecoilState(activitiesErrorState);
+  const activitiesLoadable = useRecoilValueLoadable(activitiesSelector);
+
+  useEffect(() => {
+    switch (activitiesLoadable.state) {
+      case 'hasValue':
+        setActivities(activitiesLoadable.contents);
+        setLoading(false);
+        setError(null);
+        break;
+      case 'loading':
+        setLoading(true);
+        break;
+      case 'hasError':
+        setError(activitiesLoadable.contents);
+        setLoading(false);
+        break;
+    }
+  }, [activitiesLoadable, setActivities, setLoading, setError]);
+
+  const activities = useRecoilValue(activitiesState);
+  const loading = useRecoilValue(activitiesLoadingState);
+  const error = useRecoilValue(activitiesErrorState);
 
   const renderSkeletons = () => (
     <>

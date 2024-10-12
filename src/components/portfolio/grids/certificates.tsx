@@ -1,12 +1,43 @@
 'use client';
 
 import { DefaultSkeleton } from '@/components/portfolio/skeleton';
-import { useCertificates } from '@/hooks/useCertificates';
+import {
+  certificatesErrorState,
+  certificatesLoadingState,
+  certificatesSelector,
+  certificatesState,
+} from '@/states/certificatesState';
 import type { Certificate } from '@/types/Certificate';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Certificates() {
-  const { certificates, loading, error } = useCertificates();
+  const setCertificates = useSetRecoilState(certificatesState);
+  const setLoading = useSetRecoilState(certificatesLoadingState);
+  const setError = useSetRecoilState(certificatesErrorState);
+  const certificatesLoadable = useRecoilValueLoadable(certificatesSelector);
+
+  useEffect(() => {
+    switch (certificatesLoadable.state) {
+      case 'hasValue':
+        setCertificates(certificatesLoadable.contents);
+        setLoading(false);
+        setError(null);
+        break;
+      case 'loading':
+        setLoading(true);
+        break;
+      case 'hasError':
+        setError(certificatesLoadable.contents);
+        setLoading(false);
+        break;
+    }
+  }, [certificatesLoadable, setCertificates, setLoading, setError]);
+
+  const certificates = useRecoilValue(certificatesState);
+  const loading = useRecoilValue(certificatesLoadingState);
+  const error = useRecoilValue(certificatesErrorState);
 
   const renderSkeletons = () => (
     <>
