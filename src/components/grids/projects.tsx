@@ -1,6 +1,6 @@
 'use client';
 
-import { ProjectSkeleton } from '@/components/portfolio/skeleton';
+import { ProjectSkeleton } from '@/components/skeleton';
 import { useProjects } from '@/hooks/useProjects';
 import type { Project } from '@/types/Project';
 import Link from 'next/link';

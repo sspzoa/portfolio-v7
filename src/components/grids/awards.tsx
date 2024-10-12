@@ -1,6 +1,6 @@
 'use client';
 
-import { DefaultSkeleton } from '@/components/portfolio/skeleton';
+import { DefaultSkeleton } from '@/components/skeleton';
 import { useAwards } from '@/hooks/useAwards';
 import type { Award } from '@/types/Award';
 import Link from 'next/link';

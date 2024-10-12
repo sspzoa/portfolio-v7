@@ -1,6 +1,6 @@
 'use client';
 
-import { DefaultSkeleton } from '@/components/portfolio/skeleton';
+import { DefaultSkeleton } from '@/components/skeleton';
 import { useCertificates } from '@/hooks/useCertificates';
 import type { Certificate } from '@/types/Certificate';
 import Link from 'next/link';
