@@ -13,7 +13,7 @@ const WantedSansVariable = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "sspzoa's Portfolio",
+  title: "I'm Seungpyo Suh",
   description: "I'm a Mobile & Frontend Engineer, passionate about creating and learning.",
   openGraph: {
     images: [{ url: 'https://sspzoa.io/images/og-image.png' }],
