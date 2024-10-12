@@ -1,22 +1,27 @@
 'use client';
 
-import { DefaultSkeleton } from '@/components/portfolio/skeleton';
-import { awardsErrorState, awardsLoadingState, awardsSelector, awardsState } from '@/states/awardsState';
-import type { Award } from '@/types/Award';
+import { DefaultSkeleton } from '@/components/skeleton';
+import {
+  certificatesErrorState,
+  certificatesLoadingState,
+  certificatesSelector,
+  certificatesState,
+} from '@/states/certificatesState';
+import type { Certificate } from '@/types/Certificate';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
-export default function Awards() {
-  const setAwards = useSetRecoilState(awardsState);
-  const setLoading = useSetRecoilState(awardsLoadingState);
-  const setError = useSetRecoilState(awardsErrorState);
-  const awardsLoadable = useRecoilValueLoadable(awardsSelector);
+export default function Certificates() {
+  const setCertificates = useSetRecoilState(certificatesState);
+  const setLoading = useSetRecoilState(certificatesLoadingState);
+  const setError = useSetRecoilState(certificatesErrorState);
+  const certificatesLoadable = useRecoilValueLoadable(certificatesSelector);
 
   useEffect(() => {
-    switch (awardsLoadable.state) {
+    switch (certificatesLoadable.state) {
       case 'hasValue':
-        setAwards(awardsLoadable.contents);
+        setCertificates(certificatesLoadable.contents);
         setLoading(false);
         setError(null);
         break;
@@ -24,15 +29,15 @@ export default function Awards() {
         setLoading(true);
         break;
       case 'hasError':
-        setError(awardsLoadable.contents);
+        setError(certificatesLoadable.contents);
         setLoading(false);
         break;
     }
-  }, [awardsLoadable, setAwards, setLoading, setError]);
+  }, [certificatesLoadable, setCertificates, setLoading, setError]);
 
-  const awards = useRecoilValue(awardsState);
-  const loading = useRecoilValue(awardsLoadingState);
-  const error = useRecoilValue(awardsErrorState);
+  const certificates = useRecoilValue(certificatesState);
+  const loading = useRecoilValue(certificatesLoadingState);
+  const error = useRecoilValue(certificatesErrorState);
 
   const renderSkeletons = () => (
     <>
@@ -42,24 +47,25 @@ export default function Awards() {
     </>
   );
 
-  if (error) return <div>Error loading awards: {error.message}</div>;
+  if (error) return <div>Error loading certificates: {error.message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
-      <strong className="text-label text-content-standard-tertiary">Awards</strong>
+      <strong className="text-label text-content-standard-tertiary">Certificates</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
         {loading
           ? renderSkeletons()
-          : awards.map((award: Award) => {
-              const name = award?.properties?.name?.title[0]?.plain_text;
-              const description = award?.properties?.description?.rich_text[0]?.plain_text;
-              const date = award?.properties?.date?.date?.start;
+          : certificates.map((certificate: Certificate) => {
+              const name = certificate?.properties?.name?.title[0]?.plain_text;
+              const kind = certificate?.properties?.kind?.rich_text[0]?.plain_text;
+              const institution = certificate?.properties?.institution?.rich_text[0]?.plain_text;
+              const date = certificate?.properties?.date?.date?.start;
               const formattedDate = date ? new Date(date).toISOString().slice(0, 7).replace(/-/g, '.') : null;
-              const public_url = award?.public_url;
+              const public_url = certificate?.public_url;
 
               return (
                 <Link
-                  key={award.id}
+                  key={certificate.id}
                   href={public_url || '#'}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -70,7 +76,7 @@ export default function Awards() {
                   <div className="flex flex-col gap-spacing-100">
                     <span className="text-label">{name || 'Not Available'}</span>
                     <span className="text-footnote text-content-standard-secondary">
-                      {description || 'Not Available'}
+                      {kind || 'Not Available'} / {institution || 'Not Available'}
                     </span>
                   </div>
                 </Link>

@@ -1,5 +1,5 @@
-import InfoBar from '@/components/portfolio/infoBar';
-import PortfolioGrid from '@/components/portfolio/portfolioGrid';
+import InfoBar from '@/components/infoBar';
+import PortfolioGrid from '@/components/portfolioGrid';
 
 export default function PortfolioPage() {
   return (

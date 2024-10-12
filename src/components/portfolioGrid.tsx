@@ -1,9 +1,9 @@
-import Footer from '@/components/portfolio/footer';
-import Activities from '@/components/portfolio/grids/activities';
-import Awards from '@/components/portfolio/grids/awards';
-import Certificates from '@/components/portfolio/grids/certificates';
-import Contributions from '@/components/portfolio/grids/contributions';
-import Projects from '@/components/portfolio/grids/projects';
+import Footer from '@/components/footer';
+import Activities from '@/components/grids/activities';
+import Awards from '@/components/grids/awards';
+import Certificates from '@/components/grids/certificates';
+import Contributions from '@/components/grids/contributions';
+import Projects from '@/components/grids/projects';
 
 export default function PortfolioGrid() {
   return (

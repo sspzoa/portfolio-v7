@@ -1,6 +1,6 @@
 'use client';
 
-import { ProjectSkeleton } from '@/components/portfolio/skeleton';
+import { ProjectSkeleton } from '@/components/skeleton';
 import {
   projectsErrorState,
   projectsLoadingState,

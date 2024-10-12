@@ -1,6 +1,6 @@
 'use client';
 
-import { DefaultSkeleton } from '@/components/portfolio/skeleton';
+import { DefaultSkeleton } from '@/components/skeleton';
 import {
   activitiesErrorState,
   activitiesLoadingState,
