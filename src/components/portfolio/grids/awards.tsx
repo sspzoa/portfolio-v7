@@ -1,38 +1,12 @@
 'use client';
 
 import { DefaultSkeleton } from '@/components/portfolio/skeleton';
-import { awardsErrorState, awardsLoadingState, awardsSelector, awardsState } from '@/states/awardsState';
+import { useAwards } from '@/hooks/useAwards';
 import type { Award } from '@/types/Award';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Awards() {
-  const setAwards = useSetRecoilState(awardsState);
-  const setLoading = useSetRecoilState(awardsLoadingState);
-  const setError = useSetRecoilState(awardsErrorState);
-  const awardsLoadable = useRecoilValueLoadable(awardsSelector);
-
-  useEffect(() => {
-    switch (awardsLoadable.state) {
-      case 'hasValue':
-        setAwards(awardsLoadable.contents);
-        setLoading(false);
-        setError(null);
-        break;
-      case 'loading':
-        setLoading(true);
-        break;
-      case 'hasError':
-        setError(awardsLoadable.contents);
-        setLoading(false);
-        break;
-    }
-  }, [awardsLoadable, setAwards, setLoading, setError]);
-
-  const awards = useRecoilValue(awardsState);
-  const loading = useRecoilValue(awardsLoadingState);
-  const error = useRecoilValue(awardsErrorState);
+  const { awards, loading, error } = useAwards();
 
   const renderSkeletons = () => (
     <>

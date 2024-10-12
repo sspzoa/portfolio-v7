@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import RecoilRootWrapper from '@/lib/recoil/recoilWrapper';
 import type React from 'react';
 
 const WantedSansVariable = localFont({
@@ -24,9 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
-      <body className={WantedSansVariable.variable}>
-        <RecoilRootWrapper>{children}</RecoilRootWrapper>
-      </body>
+      <body className={WantedSansVariable.variable}>{children}</body>
     </html>
   );
 }
