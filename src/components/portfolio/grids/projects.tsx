@@ -1,14 +1,45 @@
 'use client';
 
 import { ProjectSkeleton } from '@/components/portfolio/skeleton';
-import { useProjects } from '@/hooks/useProjects';
+import {
+  projectsErrorState,
+  projectsLoadingState,
+  projectsSelector,
+  projectsState,
+  showSideProjectsState,
+} from '@/states/projectsState';
 import type { Project } from '@/types/Project';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useRecoilState, useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Projects() {
-  const { projects, loading, error } = useProjects();
-  const [showSideProjects, setShowSideProjects] = useState(false);
+  const setProjects = useSetRecoilState(projectsState);
+  const setLoading = useSetRecoilState(projectsLoadingState);
+  const setError = useSetRecoilState(projectsErrorState);
+  const projectsLoadable = useRecoilValueLoadable(projectsSelector);
+
+  useEffect(() => {
+    switch (projectsLoadable.state) {
+      case 'hasValue':
+        setProjects(projectsLoadable.contents);
+        setLoading(false);
+        setError(null);
+        break;
+      case 'loading':
+        setLoading(true);
+        break;
+      case 'hasError':
+        setError(projectsLoadable.contents);
+        setLoading(false);
+        break;
+    }
+  }, [projectsLoadable, setProjects, setLoading, setError]);
+
+  const projects = useRecoilValue(projectsState);
+  const loading = useRecoilValue(projectsLoadingState);
+  const error = useRecoilValue(projectsErrorState);
+  const [showSideProjects, setShowSideProjects] = useRecoilState(showSideProjectsState);
 
   const renderSkeletons = () => (
     <>
