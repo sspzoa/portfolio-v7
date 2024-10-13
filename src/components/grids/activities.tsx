@@ -1,43 +1,37 @@
 'use client';
 
-import { DefaultSkeleton } from '@/components/skeleton';
 import {
-  activitiesErrorState,
-  activitiesLoadingState,
-  activitiesSelector,
-  activitiesState,
-} from '@/states/activitiesState';
+  activitiesAtom,
+  activitiesErrorAtom,
+  activitiesLoadingAtom,
+  activitiesQueryAtom,
+} from '@/atom/activitiesState';
+import { DefaultSkeleton } from '@/components/skeleton';
 import type { Activity } from '@/types/Activity';
+import { useAtom } from 'jotai';
+import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Activities() {
-  const setActivities = useSetRecoilState(activitiesState);
-  const setLoading = useSetRecoilState(activitiesLoadingState);
-  const setError = useSetRecoilState(activitiesErrorState);
-  const activitiesLoadable = useRecoilValueLoadable(activitiesSelector);
+  useHydrateAtoms([[activitiesLoadingAtom, true]]);
+
+  const [{ data, isLoading, error }] = useAtom(activitiesQueryAtom);
+  const [activities, setActivities] = useAtom(activitiesAtom);
+  const [loading, setLoading] = useAtom(activitiesLoadingAtom);
+  const [, setError] = useAtom(activitiesErrorAtom);
 
   useEffect(() => {
-    switch (activitiesLoadable.state) {
-      case 'hasValue':
-        setActivities(activitiesLoadable.contents);
-        setLoading(false);
-        setError(null);
-        break;
-      case 'loading':
-        setLoading(true);
-        break;
-      case 'hasError':
-        setError(activitiesLoadable.contents);
-        setLoading(false);
-        break;
+    if (data) {
+      setActivities(data);
+      setLoading(false);
+      setError(null);
     }
-  }, [activitiesLoadable, setActivities, setLoading, setError]);
-
-  const activities = useRecoilValue(activitiesState);
-  const loading = useRecoilValue(activitiesLoadingState);
-  const error = useRecoilValue(activitiesErrorState);
+    if (error) {
+      setError(error as Error);
+      setLoading(false);
+    }
+  }, [data, error, setActivities, setLoading, setError]);
 
   const renderSkeletons = () => (
     <>
@@ -47,13 +41,13 @@ export default function Activities() {
     </>
   );
 
-  if (error) return <div>Error loading activities: {error.message}</div>;
+  if (error) return <div>Error loading activities: {(error as Error).message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Activities</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
-        {loading
+        {isLoading || loading
           ? renderSkeletons()
           : activities.map((activity: Activity) => {
               const name = activity?.properties?.name?.title[0]?.plain_text;

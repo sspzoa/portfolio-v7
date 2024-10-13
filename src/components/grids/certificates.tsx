@@ -1,43 +1,37 @@
 'use client';
 
-import { DefaultSkeleton } from '@/components/skeleton';
 import {
-  certificatesErrorState,
-  certificatesLoadingState,
-  certificatesSelector,
-  certificatesState,
-} from '@/states/certificatesState';
+  certificatesAtom,
+  certificatesErrorAtom,
+  certificatesLoadingAtom,
+  certificatesQueryAtom,
+} from '@/atom/certificatesState';
+import { DefaultSkeleton } from '@/components/skeleton';
 import type { Certificate } from '@/types/Certificate';
+import { useAtom } from 'jotai';
+import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Certificates() {
-  const setCertificates = useSetRecoilState(certificatesState);
-  const setLoading = useSetRecoilState(certificatesLoadingState);
-  const setError = useSetRecoilState(certificatesErrorState);
-  const certificatesLoadable = useRecoilValueLoadable(certificatesSelector);
+  useHydrateAtoms([[certificatesLoadingAtom, true]]);
+
+  const [{ data, isLoading, error }] = useAtom(certificatesQueryAtom);
+  const [certificates, setCertificates] = useAtom(certificatesAtom);
+  const [loading, setLoading] = useAtom(certificatesLoadingAtom);
+  const [, setError] = useAtom(certificatesErrorAtom);
 
   useEffect(() => {
-    switch (certificatesLoadable.state) {
-      case 'hasValue':
-        setCertificates(certificatesLoadable.contents);
-        setLoading(false);
-        setError(null);
-        break;
-      case 'loading':
-        setLoading(true);
-        break;
-      case 'hasError':
-        setError(certificatesLoadable.contents);
-        setLoading(false);
-        break;
+    if (data) {
+      setCertificates(data);
+      setLoading(false);
+      setError(null);
     }
-  }, [certificatesLoadable, setCertificates, setLoading, setError]);
-
-  const certificates = useRecoilValue(certificatesState);
-  const loading = useRecoilValue(certificatesLoadingState);
-  const error = useRecoilValue(certificatesErrorState);
+    if (error) {
+      setError(error as Error);
+      setLoading(false);
+    }
+  }, [data, error, setCertificates, setLoading, setError]);
 
   const renderSkeletons = () => (
     <>
@@ -47,13 +41,13 @@ export default function Certificates() {
     </>
   );
 
-  if (error) return <div>Error loading certificates: {error.message}</div>;
+  if (error) return <div>Error loading certificates: {(error as Error).message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Certificates</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
-        {loading
+        {isLoading || loading
           ? renderSkeletons()
           : certificates.map((certificate: Certificate) => {
               const name = certificate?.properties?.name?.title[0]?.plain_text;

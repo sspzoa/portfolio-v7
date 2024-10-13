@@ -1,38 +1,32 @@
 'use client';
 
+import { awardsAtom, awardsErrorAtom, awardsLoadingAtom, awardsQueryAtom } from '@/atom/awardsState';
 import { DefaultSkeleton } from '@/components/skeleton';
-import { awardsErrorState, awardsLoadingState, awardsSelector, awardsState } from '@/states/awardsState';
 import type { Award } from '@/types/Award';
+import { useAtom } from 'jotai';
+import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Awards() {
-  const setAwards = useSetRecoilState(awardsState);
-  const setLoading = useSetRecoilState(awardsLoadingState);
-  const setError = useSetRecoilState(awardsErrorState);
-  const awardsLoadable = useRecoilValueLoadable(awardsSelector);
+  useHydrateAtoms([[awardsLoadingAtom, true]]);
+
+  const [{ data, isLoading, error }] = useAtom(awardsQueryAtom);
+  const [awards, setAwards] = useAtom(awardsAtom);
+  const [loading, setLoading] = useAtom(awardsLoadingAtom);
+  const [, setError] = useAtom(awardsErrorAtom);
 
   useEffect(() => {
-    switch (awardsLoadable.state) {
-      case 'hasValue':
-        setAwards(awardsLoadable.contents);
-        setLoading(false);
-        setError(null);
-        break;
-      case 'loading':
-        setLoading(true);
-        break;
-      case 'hasError':
-        setError(awardsLoadable.contents);
-        setLoading(false);
-        break;
+    if (data) {
+      setAwards(data);
+      setLoading(false);
+      setError(null);
     }
-  }, [awardsLoadable, setAwards, setLoading, setError]);
-
-  const awards = useRecoilValue(awardsState);
-  const loading = useRecoilValue(awardsLoadingState);
-  const error = useRecoilValue(awardsErrorState);
+    if (error) {
+      setError(error as Error);
+      setLoading(false);
+    }
+  }, [data, error, setAwards, setLoading, setError]);
 
   const renderSkeletons = () => (
     <>
@@ -42,13 +36,13 @@ export default function Awards() {
     </>
   );
 
-  if (error) return <div>Error loading awards: {error.message}</div>;
+  if (error) return <div>Error loading awards: {(error as Error).message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Awards</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
-        {loading
+        {isLoading || loading
           ? renderSkeletons()
           : awards.map((award: Award) => {
               const name = award?.properties?.name?.title[0]?.plain_text;

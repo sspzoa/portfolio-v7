@@ -1,45 +1,39 @@
 'use client';
 
-import { ProjectSkeleton } from '@/components/skeleton';
 import {
-  projectsErrorState,
-  projectsLoadingState,
-  projectsSelector,
-  projectsState,
-  showSideProjectsState,
-} from '@/states/projectsState';
+  projectsAtom,
+  projectsErrorAtom,
+  projectsLoadingAtom,
+  projectsQueryAtom,
+  showSideProjectsAtom,
+} from '@/atom/projectsState';
+import { ProjectSkeleton } from '@/components/skeleton';
 import type { Project } from '@/types/Project';
+import { useAtom } from 'jotai';
+import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue, useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 
 export default function Projects() {
-  const setProjects = useSetRecoilState(projectsState);
-  const setLoading = useSetRecoilState(projectsLoadingState);
-  const setError = useSetRecoilState(projectsErrorState);
-  const projectsLoadable = useRecoilValueLoadable(projectsSelector);
+  useHydrateAtoms([[projectsLoadingAtom, true]]);
+
+  const [{ data, isLoading, error }] = useAtom(projectsQueryAtom);
+  const [projects, setProjects] = useAtom(projectsAtom);
+  const [loading, setLoading] = useAtom(projectsLoadingAtom);
+  const [, setError] = useAtom(projectsErrorAtom);
+  const [showSideProjects, setShowSideProjects] = useAtom(showSideProjectsAtom);
 
   useEffect(() => {
-    switch (projectsLoadable.state) {
-      case 'hasValue':
-        setProjects(projectsLoadable.contents);
-        setLoading(false);
-        setError(null);
-        break;
-      case 'loading':
-        setLoading(true);
-        break;
-      case 'hasError':
-        setError(projectsLoadable.contents);
-        setLoading(false);
-        break;
+    if (data) {
+      setProjects(data);
+      setLoading(false);
+      setError(null);
     }
-  }, [projectsLoadable, setProjects, setLoading, setError]);
-
-  const projects = useRecoilValue(projectsState);
-  const loading = useRecoilValue(projectsLoadingState);
-  const error = useRecoilValue(projectsErrorState);
-  const [showSideProjects, setShowSideProjects] = useRecoilState(showSideProjectsState);
+    if (error) {
+      setError(error as Error);
+      setLoading(false);
+    }
+  }, [data, error, setProjects, setLoading, setError]);
 
   const renderSkeletons = () => (
     <>
@@ -49,7 +43,7 @@ export default function Projects() {
     </>
   );
 
-  if (error) return <div>Error loading projects: {error.message}</div>;
+  if (error) return <div>Error loading projects: {(error as Error).message}</div>;
 
   const mainProjects = projects.filter((project: Project) => !project.properties.isSideProject?.checkbox);
   const sideProjects = projects.filter((project: Project) => project.properties.isSideProject?.checkbox);
@@ -109,7 +103,7 @@ export default function Projects() {
           </strong>
         </button>
       </div>
-      {loading ? (
+      {isLoading || loading ? (
         <div className="grid lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">{renderSkeletons()}</div>
       ) : (
         <>
