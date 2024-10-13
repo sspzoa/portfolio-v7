@@ -1,7 +1,7 @@
 'use client';
 
 import { aboutAtom, aboutErrorAtom, aboutLoadingAtom, aboutQueryAtom } from '@/atom/info/aboutState';
-import { AboutSkeleton, DefaultSkeleton } from '@/components/Skeleton';
+import { AboutSkeleton } from '@/components/Skeleton';
 import type { AboutType } from '@/types/info/AboutType';
 import { useAtom } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';

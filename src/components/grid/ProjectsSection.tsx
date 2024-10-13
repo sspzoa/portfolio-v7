@@ -92,17 +92,7 @@ export default function ProjectsSection() {
 
   return (
     <div className="flex flex-col gap-spacing-300">
-      <div className="flex justify-between items-center">
-        <strong className="text-label text-content-standard-tertiary">Projects</strong>
-        <button
-          type="button"
-          onClick={() => setShowSideProjects(!showSideProjects)}
-          className="ease-in-out duration-300 hover:opacity-50">
-          <strong className="text-label text-content-standard-tertiary">
-            {showSideProjects ? '사이드 프로젝트 숨기기' : '사이드 프로젝트 보기'}
-          </strong>
-        </button>
-      </div>
+      <strong className="text-label text-content-standard-tertiary">Projects</strong>
       {isLoading || loading ? (
         <div className="grid lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">{renderSkeletons()}</div>
       ) : (
@@ -120,6 +110,14 @@ export default function ProjectsSection() {
           )}
         </>
       )}
+      <button
+        type="button"
+        onClick={() => setShowSideProjects(!showSideProjects)}
+        className="ease-in-out duration-300 hover:opacity-50">
+        <strong className="text-label text-content-standard-tertiary">
+          {showSideProjects ? '사이드 프로젝트 숨기기' : '사이드 프로젝트 보기'}
+        </strong>
+      </button>
     </div>
   );
 }

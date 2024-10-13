@@ -1,7 +1,7 @@
 'use client';
 
 import { skillsAtom, skillsErrorAtom, skillsLoadingAtom, skillsQueryAtom } from '@/atom/info/skillsState';
-import { DefaultSkeleton, SkillSkeleton } from '@/components/Skeleton';
+import { SkillSkeleton } from '@/components/Skeleton';
 import type { SkillType } from '@/types/info/SkillType';
 import { useAtom } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
