@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectType {
   id: string;
   public_url: string;
   icon: { file: { url: string } };

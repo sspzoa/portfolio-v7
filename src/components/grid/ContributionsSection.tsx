@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import GitHubCalendar from 'react-github-calendar';
 
-export default function Contributions() {
+export default function ContributionsSection() {
   return (
     <div className="flex flex-col gap-spacing-300">
       <div className="flex flex-col md:flex-row gap-spacing-300 md:gap-spacing-400">

@@ -6,15 +6,15 @@ import {
   projectsLoadingAtom,
   projectsQueryAtom,
   showSideProjectsAtom,
-} from '@/atom/projectsState';
-import { ProjectSkeleton } from '@/components/skeleton';
-import type { Project } from '@/types/Project';
+} from '@/atom/grid/projectsState';
+import { ProjectSkeleton } from '@/components/Skeleton';
+import type { ProjectType } from '@/types/grid/ProjectType';
 import { useAtom } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-export default function Projects() {
+export default function ProjectsSection() {
   useHydrateAtoms([[projectsLoadingAtom, true]]);
 
   const [{ data, isLoading, error }] = useAtom(projectsQueryAtom);
@@ -45,10 +45,10 @@ export default function Projects() {
 
   if (error) return <div>Error loading projects: {(error as Error).message}</div>;
 
-  const mainProjects = projects.filter((project: Project) => !project.properties.isSideProject?.checkbox);
-  const sideProjects = projects.filter((project: Project) => project.properties.isSideProject?.checkbox);
+  const mainProjects = projects.filter((project: ProjectType) => !project.properties.isSideProject?.checkbox);
+  const sideProjects = projects.filter((project: ProjectType) => project.properties.isSideProject?.checkbox);
 
-  const renderProject = (project: Project) => {
+  const renderProject = (project: ProjectType) => {
     const icon = project?.icon?.file?.url;
     const cover = project?.cover?.file?.url;
     const name = project?.properties?.name?.title[0]?.plain_text;

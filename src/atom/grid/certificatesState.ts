@@ -1,4 +1,4 @@
-import type { Certificate } from '@/types/Certificate';
+import type { CertificateType } from '@/types/grid/CertificateType';
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
@@ -10,11 +10,11 @@ export const certificatesQueryAtom = atomWithQuery(() => ({
       throw new Error('Failed to fetch certificates');
     }
     const data = await response.json();
-    return data.results as Certificate[];
+    return data.results as CertificateType[];
   },
 }));
 
-export const certificatesAtom = atom<Certificate[]>([]);
+export const certificatesAtom = atom<CertificateType[]>([]);
 
 export const certificatesLoadingAtom = atom<boolean>(true);
 

@@ -1,29 +1,24 @@
 'use client';
 
-import {
-  certificatesAtom,
-  certificatesErrorAtom,
-  certificatesLoadingAtom,
-  certificatesQueryAtom,
-} from '@/atom/certificatesState';
-import { DefaultSkeleton } from '@/components/skeleton';
-import type { Certificate } from '@/types/Certificate';
+import { awardsAtom, awardsErrorAtom, awardsLoadingAtom, awardsQueryAtom } from '@/atom/grid/awardsState';
+import { DefaultSkeleton } from '@/components/Skeleton';
+import type { AwardType } from '@/types/grid/AwardType';
 import { useAtom } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-export default function Certificates() {
-  useHydrateAtoms([[certificatesLoadingAtom, true]]);
+export default function AwardsSection() {
+  useHydrateAtoms([[awardsLoadingAtom, true]]);
 
-  const [{ data, isLoading, error }] = useAtom(certificatesQueryAtom);
-  const [certificates, setCertificates] = useAtom(certificatesAtom);
-  const [loading, setLoading] = useAtom(certificatesLoadingAtom);
-  const [, setError] = useAtom(certificatesErrorAtom);
+  const [{ data, isLoading, error }] = useAtom(awardsQueryAtom);
+  const [awards, setAwards] = useAtom(awardsAtom);
+  const [loading, setLoading] = useAtom(awardsLoadingAtom);
+  const [, setError] = useAtom(awardsErrorAtom);
 
   useEffect(() => {
     if (data) {
-      setCertificates(data);
+      setAwards(data);
       setLoading(false);
       setError(null);
     }
@@ -31,7 +26,7 @@ export default function Certificates() {
       setError(error as Error);
       setLoading(false);
     }
-  }, [data, error, setCertificates, setLoading, setError]);
+  }, [data, error, setAwards, setLoading, setError]);
 
   const renderSkeletons = () => (
     <>
@@ -41,25 +36,24 @@ export default function Certificates() {
     </>
   );
 
-  if (error) return <div>Error loading certificates: {(error as Error).message}</div>;
+  if (error) return <div>Error loading awards: {(error as Error).message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
-      <strong className="text-label text-content-standard-tertiary">Certificates</strong>
+      <strong className="text-label text-content-standard-tertiary">Awards</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
         {isLoading || loading
           ? renderSkeletons()
-          : certificates.map((certificate: Certificate) => {
-              const name = certificate?.properties?.name?.title[0]?.plain_text;
-              const kind = certificate?.properties?.kind?.rich_text[0]?.plain_text;
-              const institution = certificate?.properties?.institution?.rich_text[0]?.plain_text;
-              const date = certificate?.properties?.date?.date?.start;
+          : awards.map((award: AwardType) => {
+              const name = award?.properties?.name?.title[0]?.plain_text;
+              const description = award?.properties?.description?.rich_text[0]?.plain_text;
+              const date = award?.properties?.date?.date?.start;
               const formattedDate = date ? new Date(date).toISOString().slice(0, 7).replace(/-/g, '.') : null;
-              const public_url = certificate?.public_url;
+              const public_url = award?.public_url;
 
               return (
                 <Link
-                  key={certificate.id}
+                  key={award.id}
                   href={public_url || '#'}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -70,7 +64,7 @@ export default function Certificates() {
                   <div className="flex flex-col gap-spacing-100">
                     <span className="text-label">{name || 'Not Available'}</span>
                     <span className="text-footnote text-content-standard-secondary">
-                      {kind || 'Not Available'} / {institution || 'Not Available'}
+                      {description || 'Not Available'}
                     </span>
                   </div>
                 </Link>

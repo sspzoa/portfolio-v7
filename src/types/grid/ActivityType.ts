@@ -1,9 +1,9 @@
-export interface Award {
+export interface ActivityType {
   id: string;
   public_url: string;
   properties: {
     name?: { title: { plain_text: string }[] };
-    description?: { rich_text: { plain_text: string }[] };
+    host?: { multi_select: { name: string }[] };
     date?: { date: { start: string } };
   };
 }

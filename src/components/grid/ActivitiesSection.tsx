@@ -1,24 +1,29 @@
 'use client';
 
-import { awardsAtom, awardsErrorAtom, awardsLoadingAtom, awardsQueryAtom } from '@/atom/awardsState';
-import { DefaultSkeleton } from '@/components/skeleton';
-import type { Award } from '@/types/Award';
+import {
+  activitiesAtom,
+  activitiesErrorAtom,
+  activitiesLoadingAtom,
+  activitiesQueryAtom,
+} from '@/atom/grid/activitiesState';
+import { DefaultSkeleton } from '@/components/Skeleton';
+import type { ActivityType } from '@/types/grid/ActivityType';
 import { useAtom } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-export default function Awards() {
-  useHydrateAtoms([[awardsLoadingAtom, true]]);
+export default function ActivitiesSection() {
+  useHydrateAtoms([[activitiesLoadingAtom, true]]);
 
-  const [{ data, isLoading, error }] = useAtom(awardsQueryAtom);
-  const [awards, setAwards] = useAtom(awardsAtom);
-  const [loading, setLoading] = useAtom(awardsLoadingAtom);
-  const [, setError] = useAtom(awardsErrorAtom);
+  const [{ data, isLoading, error }] = useAtom(activitiesQueryAtom);
+  const [activities, setActivities] = useAtom(activitiesAtom);
+  const [loading, setLoading] = useAtom(activitiesLoadingAtom);
+  const [, setError] = useAtom(activitiesErrorAtom);
 
   useEffect(() => {
     if (data) {
-      setAwards(data);
+      setActivities(data);
       setLoading(false);
       setError(null);
     }
@@ -26,7 +31,7 @@ export default function Awards() {
       setError(error as Error);
       setLoading(false);
     }
-  }, [data, error, setAwards, setLoading, setError]);
+  }, [data, error, setActivities, setLoading, setError]);
 
   const renderSkeletons = () => (
     <>
@@ -36,24 +41,24 @@ export default function Awards() {
     </>
   );
 
-  if (error) return <div>Error loading awards: {(error as Error).message}</div>;
+  if (error) return <div>Error loading activities: {(error as Error).message}</div>;
 
   return (
     <div className="flex flex-col gap-spacing-300">
-      <strong className="text-label text-content-standard-tertiary">Awards</strong>
+      <strong className="text-label text-content-standard-tertiary">Activities</strong>
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-spacing-400">
         {isLoading || loading
           ? renderSkeletons()
-          : awards.map((award: Award) => {
-              const name = award?.properties?.name?.title[0]?.plain_text;
-              const description = award?.properties?.description?.rich_text[0]?.plain_text;
-              const date = award?.properties?.date?.date?.start;
+          : activities.map((activity: ActivityType) => {
+              const name = activity?.properties?.name?.title[0]?.plain_text;
+              const hosts = activity?.properties?.host?.multi_select.map((item) => item.name).join(', ');
+              const date = activity?.properties?.date?.date?.start;
               const formattedDate = date ? new Date(date).toISOString().slice(0, 7).replace(/-/g, '.') : null;
-              const public_url = award?.public_url;
+              const public_url = activity?.public_url;
 
               return (
                 <Link
-                  key={award.id}
+                  key={activity.id}
                   href={public_url || '#'}
                   target="_blank"
                   rel="noreferrer noopener"
@@ -63,9 +68,7 @@ export default function Awards() {
                   </span>
                   <div className="flex flex-col gap-spacing-100">
                     <span className="text-label">{name || 'Not Available'}</span>
-                    <span className="text-footnote text-content-standard-secondary">
-                      {description || 'Not Available'}
-                    </span>
+                    <span className="text-footnote text-content-standard-secondary">{hosts || 'Not Available'}</span>
                   </div>
                 </Link>
               );

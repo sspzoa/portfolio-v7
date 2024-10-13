@@ -1,4 +1,4 @@
-export interface Certificate {
+export interface CertificateType {
   id: string;
   public_url: string;
   properties: {

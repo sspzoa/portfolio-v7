@@ -1,4 +1,4 @@
-import type { Project } from '@/types/Project';
+import type { ProjectType } from '@/types/grid/ProjectType';
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
@@ -10,11 +10,11 @@ export const projectsQueryAtom = atomWithQuery(() => ({
       throw new Error('Failed to fetch projects');
     }
     const data = await response.json();
-    return data.results as Project[];
+    return data.results as ProjectType[];
   },
 }));
 
-export const projectsAtom = atom<Project[]>([]);
+export const projectsAtom = atom<ProjectType[]>([]);
 
 export const projectsLoadingAtom = atom<boolean>(true);
 

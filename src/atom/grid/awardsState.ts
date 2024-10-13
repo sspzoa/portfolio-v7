@@ -1,4 +1,4 @@
-import type { Award } from '@/types/Award';
+import type { AwardType } from '@/types/grid/AwardType';
 import { atom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
 
@@ -10,11 +10,11 @@ export const awardsQueryAtom = atomWithQuery(() => ({
       throw new Error('Failed to fetch awards');
     }
     const data = await response.json();
-    return data.results as Award[];
+    return data.results as AwardType[];
   },
 }));
 
-export const awardsAtom = atom<Award[]>([]);
+export const awardsAtom = atom<AwardType[]>([]);
 
 export const awardsLoadingAtom = atom<boolean>(true);
 
