@@ -3,7 +3,7 @@ import { ContactSection } from '@/components/info/ContactSection';
 import { ProfileSection } from '@/components/info/ProfileSection';
 import { SkillsSection } from '@/components/info/SkillsSection';
 import { AndroidSvg, FastApiSvg, FlutterSvg, NextSvg } from '@/resources/svg';
-import { faDiscord, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export default function Info() {

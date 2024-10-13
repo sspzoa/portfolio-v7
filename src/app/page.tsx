@@ -1,5 +1,5 @@
-import Grid from '@/components/Grid';
-import Info from '@/components/Info';
+import Grid from '@/islands/Grid';
+import Info from '@/islands/Info';
 
 export default function Home() {
   return (
