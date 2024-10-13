@@ -5,7 +5,7 @@ import { atomWithQuery } from 'jotai-tanstack-query';
 export const certificatesQueryAtom = atomWithQuery(() => ({
   queryKey: ['certificates'],
   queryFn: async () => {
-    const response = await fetch('/api/certificates');
+    const response = await fetch('/api/grid/certificates');
     if (!response.ok) {
       throw new Error('Failed to fetch certificates');
     }

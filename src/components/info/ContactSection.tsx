@@ -1,8 +1,8 @@
-import type { ContactItemType, ContactType } from '@/types/info/ContactType';
+import type { ContactType } from '@/types/info/ContactType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-const ContactItem = ({ href, icon, text }: ContactItemType) => (
+const ContactItem = ({ href, icon, text }: ContactType) => (
   <Link
     href={href}
     target="_blank"
@@ -13,7 +13,7 @@ const ContactItem = ({ href, icon, text }: ContactItemType) => (
   </Link>
 );
 
-export const ContactSection = ({ items }: ContactType) => (
+export const ContactSection = ({ items }: { items: ContactType[] }) => (
   <div className="flex flex-col gap-spacing-300 flex-grow justify-end items-center md:items-start">
     <strong className="text-label text-content-standard-tertiary">Contact</strong>
     <div className="flex flex-col gap-spacing-200">

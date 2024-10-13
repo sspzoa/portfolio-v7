@@ -5,7 +5,7 @@ import { atomWithQuery } from 'jotai-tanstack-query';
 export const awardsQueryAtom = atomWithQuery(() => ({
   queryKey: ['awards'],
   queryFn: async () => {
-    const response = await fetch('/api/awards');
+    const response = await fetch('/api/grid/awards');
     if (!response.ok) {
       throw new Error('Failed to fetch awards');
     }

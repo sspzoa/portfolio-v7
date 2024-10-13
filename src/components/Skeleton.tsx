@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type React from 'react';
 
 interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,6 +25,24 @@ export const ProjectSkeleton: React.FC = () => (
         <Skeleton className="h-4 w-3/4" />
         <Skeleton className="h-3 w-1/2" />
       </div>
+    </div>
+  </div>
+);
+
+export const SkillSkeleton: React.FC = () => (
+  <div className="flex flex-col bg-components-fill-standard-secondary rounded-radius-full animate-pulse">
+    <Skeleton className="w-[32px] h-[32px] flex-shrink-0" />
+  </div>
+);
+
+export const AboutSkeleton: React.FC = () => (
+  <div className="flex flex-row items-center">
+    <div className="w-[75px]">
+      <Skeleton className="w-[60px] h-[22px] bg-components-fill-standard-secondary rounded-radius-100 animate-pulse" />
+    </div>
+    <div className="flex flex-col gap-spacing-100">
+      <Skeleton className="w-[80px] h-[22px] bg-components-fill-standard-secondary rounded-radius-100 animate-pulse" />
+      <Skeleton className="w-[120px] h-[20px] bg-components-fill-standard-secondary rounded-radius-100 animate-pulse" />
     </div>
   </div>
 );

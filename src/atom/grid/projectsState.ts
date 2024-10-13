@@ -5,7 +5,7 @@ import { atomWithQuery } from 'jotai-tanstack-query';
 export const projectsQueryAtom = atomWithQuery(() => ({
   queryKey: ['projects'],
   queryFn: async () => {
-    const response = await fetch('/api/projects');
+    const response = await fetch('/api/grid/projects');
     if (!response.ok) {
       throw new Error('Failed to fetch projects');
     }
