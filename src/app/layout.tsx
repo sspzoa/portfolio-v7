@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import RootWrapper from '@/lib/jotai/RootWrapper';
+import RootWrapper from '@/components/RootWrapper';
 import type React from 'react';
 
 const WantedSansVariable = localFont({
