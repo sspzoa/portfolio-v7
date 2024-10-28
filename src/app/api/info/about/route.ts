@@ -5,6 +5,7 @@ const ABOUT_DATABASE_ID = '11ecc9b72a9c800aa061f9d2fe431f33';
 export async function GET() {
   const res = await fetch(`https://api.notion.com/v1/databases/${ABOUT_DATABASE_ID}/query`, {
     method: 'POST',
+    cache: 'no-cache',
     headers: {
       Accept: 'application/json',
       'Notion-Version': '2022-02-22',
