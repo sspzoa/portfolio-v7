@@ -5,7 +5,6 @@ const CERTIFICATES_DATABASE_ID = '105cc9b72a9c8088a82defcfa25890aa';
 export async function GET() {
   const res = await fetch(`https://api.notion.com/v1/databases/${CERTIFICATES_DATABASE_ID}/query`, {
     method: 'POST',
-    cache: 'no-cache',
     headers: {
       Accept: 'application/json',
       'Notion-Version': '2022-02-22',
