@@ -7,7 +7,7 @@ export default function ContributionsSection() {
       <div className="flex flex-col md:flex-row gap-spacing-300 md:gap-spacing-400">
         <strong className="text-label text-content-standard-tertiary">Contributions</strong>
         <span className="text-label text-content-standard-quaternary">
-          CSAT preparation period: Jan 1 - Nov 19, 2025
+          CSAT preparation period: Jan 1 - Nov 12, 2025
         </span>
       </div>
       <Link
