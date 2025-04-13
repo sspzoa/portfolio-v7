@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 
+@import url("https://static.toss.im/tps/main.css");
+@import url("https://static.toss.im/tps/others.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
+  font-family: "Toss Product San", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
