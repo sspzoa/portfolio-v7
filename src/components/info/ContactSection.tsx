@@ -1,8 +1,9 @@
+import React from 'react';
 import type { ContactType } from '@/types/info/ContactType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-const ContactItem = ({ href, icon, text }: ContactType) => (
+const ContactItem = React.memo(({ href, icon, text }: ContactType) => (
   <Link
     href={href}
     target="_blank"
@@ -11,9 +12,9 @@ const ContactItem = ({ href, icon, text }: ContactType) => (
     <FontAwesomeIcon icon={icon} className="w-[14px] h-[14px]" />
     <span className="text-label text-content-standard-secondary">{text}</span>
   </Link>
-);
+));
 
-export const ContactSection = ({ items }: { items: ContactType[] }) => (
+export const ContactSection = React.memo(({ items }: { items: ContactType[] }) => (
   <div className="flex flex-col gap-spacing-300 flex-grow justify-end items-center md:items-start">
     <strong className="text-label text-content-standard-tertiary">Contact</strong>
     <div className="flex flex-col gap-spacing-200">
@@ -22,4 +23,4 @@ export const ContactSection = ({ items }: { items: ContactType[] }) => (
       ))}
     </div>
   </div>
-);
+));

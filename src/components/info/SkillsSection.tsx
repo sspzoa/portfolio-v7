@@ -1,43 +1,24 @@
 'use client';
 
-import { skillsAtom, skillsErrorAtom, skillsLoadingAtom, skillsQueryAtom } from '@/atom/info/skillsState';
+import React from 'react';
 import { SkillSkeleton } from '@/components/Skeleton';
 import type { SkillType } from '@/types/info/SkillType';
-import { useAtom } from 'jotai';
-import { useHydrateAtoms } from 'jotai/utils';
-import { useEffect } from 'react';
+import { useSkills } from '@/lib/hooks/useSkills';
 
-const SkillItem = ({ name, icon }: { name: string; icon: string }) => (
+const SkillItem = React.memo(({ name, icon }: { name: string; icon: string }) => (
   <img src={icon} alt={name} title={name} className="h-[32px] w-[32px] object-contain" draggable={false} />
-);
+));
 
-export default function SkillsSection() {
-  useHydrateAtoms([[skillsLoadingAtom, true]]);
+const SkillsSkeletonContainer = React.memo(() => (
+  <>
+    {[...Array(10)].map((_, index) => (
+      <SkillSkeleton key={index} />
+    ))}
+  </>
+));
 
-  const [{ data, isLoading, error }] = useAtom(skillsQueryAtom);
-  const [skills, setSkills] = useAtom(skillsAtom);
-  const [loading, setLoading] = useAtom(skillsLoadingAtom);
-  const [, setError] = useAtom(skillsErrorAtom);
-
-  useEffect(() => {
-    if (data) {
-      setSkills(data);
-      setLoading(false);
-      setError(null);
-    }
-    if (error) {
-      setError(error as Error);
-      setLoading(false);
-    }
-  }, [data, error, setSkills, setLoading, setError]);
-
-  const renderSkeletons = () => (
-    <>
-      {[...Array(10)].map((_, index) => (
-        <SkillSkeleton key={index} />
-      ))}
-    </>
-  );
+const SkillsSection = React.memo(function SkillsSection() {
+  const { skills, isLoading, error } = useSkills();
 
   if (error) return <div>Error loading skills: {(error as Error).message}</div>;
 
@@ -45,8 +26,8 @@ export default function SkillsSection() {
     <div className="flex flex-col gap-spacing-300 items-center md:items-start">
       <strong className="text-label text-content-standard-tertiary">Skills</strong>
       <div className="flex flex-row flex-wrap gap-spacing-500 max-w-[240px]">
-        {isLoading || loading
-          ? renderSkeletons()
+        {isLoading
+          ? <SkillsSkeletonContainer />
           : skills.map((skill: SkillType) => (
               <SkillItem
                 key={skill.id}
@@ -57,4 +38,6 @@ export default function SkillsSection() {
       </div>
     </div>
   );
-}
+});
+
+export default SkillsSection;

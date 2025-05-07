@@ -1,7 +1,8 @@
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+const Footer = React.memo(function Footer() {
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
     <span className="text-footnote text-content-standard-secondary self-center md:self-end text-center md:text-right w-full">
@@ -16,4 +17,6 @@ export default function Footer() {
       . All rights reserved.
     </span>
   );
-}
+});
+
+export default Footer;

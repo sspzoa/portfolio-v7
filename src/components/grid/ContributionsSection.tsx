@@ -1,7 +1,8 @@
+import React from 'react';
 import Link from 'next/link';
 import GitHubCalendar from 'react-github-calendar';
 
-export default function ContributionsSection() {
+const ContributionsSection = React.memo(function ContributionsSection() {
   return (
     <div className="flex flex-col gap-spacing-300">
       <strong className="text-label text-content-standard-tertiary">Contributions</strong>
@@ -14,4 +15,6 @@ export default function ContributionsSection() {
       </Link>
     </div>
   );
-}
+});
+
+export default ContributionsSection;

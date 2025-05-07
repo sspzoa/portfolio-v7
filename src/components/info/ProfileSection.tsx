@@ -1,7 +1,8 @@
+import React from 'react';
 import type { ProfileType } from '@/types/info/ProfileType';
 import Image from 'next/image';
 
-export const ProfileSection = ({ imageUrl, name, title }: ProfileType) => (
+export const ProfileSection = React.memo(({ imageUrl, name, title }: ProfileType) => (
   <div className="flex flex-col gap-spacing-300 items-center md:items-start">
     <Image
       className="rounded-radius-full border border-line-outline"
@@ -16,4 +17,4 @@ export const ProfileSection = ({ imageUrl, name, title }: ProfileType) => (
       <span className="text-body text-content-standard-secondary">{title}</span>
     </div>
   </div>
-);
+));

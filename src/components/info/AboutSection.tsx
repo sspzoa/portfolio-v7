@@ -1,12 +1,10 @@
 'use client';
 
-import { aboutAtom, aboutErrorAtom, aboutLoadingAtom, aboutQueryAtom } from '@/atom/info/aboutState';
+import React from 'react';
 import { AboutSkeleton } from '@/components/Skeleton';
 import type { AboutType } from '@/types/info/AboutType';
-import { useAtom } from 'jotai';
-import { useHydrateAtoms } from 'jotai/utils';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useAbout } from '@/lib/hooks/useAbout';
 
 const formatDate = (dateString?: string) => {
   if (!dateString) return 'N/A';
@@ -14,7 +12,7 @@ const formatDate = (dateString?: string) => {
   return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}~`;
 };
 
-const AboutItem = ({
+const AboutItem = React.memo(({
   date,
   name,
   organization,
@@ -42,35 +40,18 @@ const AboutItem = ({
       )}
     </div>
   </div>
-);
+));
 
-export default function AboutSection() {
-  useHydrateAtoms([[aboutLoadingAtom, true]]);
+const AboutSkeletonContainer = React.memo(() => (
+  <>
+    {[...Array(2)].map((_, index) => (
+      <AboutSkeleton key={index} />
+    ))}
+  </>
+));
 
-  const [{ data, isLoading, error }] = useAtom(aboutQueryAtom);
-  const [about, setAbout] = useAtom(aboutAtom);
-  const [loading, setLoading] = useAtom(aboutLoadingAtom);
-  const [, setError] = useAtom(aboutErrorAtom);
-
-  useEffect(() => {
-    if (data) {
-      setAbout(data);
-      setLoading(false);
-      setError(null);
-    }
-    if (error) {
-      setError(error as Error);
-      setLoading(false);
-    }
-  }, [data, error, setAbout, setLoading, setError]);
-
-  const renderSkeletons = () => (
-    <>
-      {[...Array(2)].map((_, index) => (
-        <AboutSkeleton key={index} />
-      ))}
-    </>
-  );
+const AboutSection = React.memo(function AboutSection() {
+  const { about, isLoading, error } = useAbout();
 
   if (error) return <div>Error loading about information: {(error as Error).message}</div>;
 
@@ -78,8 +59,8 @@ export default function AboutSection() {
     <div className="flex flex-col gap-spacing-300 items-center md:items-start">
       <strong className="text-label text-content-standard-tertiary">About</strong>
       <div className="flex flex-col gap-spacing-400">
-        {isLoading || loading
-          ? renderSkeletons()
+        {isLoading
+          ? <AboutSkeletonContainer />
           : about.map((item: AboutType) => (
               <AboutItem
                 key={item.id}
@@ -92,4 +73,6 @@ export default function AboutSection() {
       </div>
     </div>
   );
-}
+});
+
+export default AboutSection;
