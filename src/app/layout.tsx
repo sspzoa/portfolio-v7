@@ -2,7 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 import RootWrapper from '@/components/RootWrapper';
 import type React from 'react';
-import {Analytics} from "@vercel/analytics/react";
+import {Analytics} from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "sspzoa's Portfolio",
@@ -20,6 +21,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
     </head>
     <body className='antialiased'>
     <Analytics />
+    <SpeedInsights />
       <RootWrapper>{children}</RootWrapper>
     </body>
     </html>
