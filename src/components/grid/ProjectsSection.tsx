@@ -91,10 +91,7 @@ const ProjectsSection = React.memo(function ProjectsSection() {
           )}
         </>
       )}
-      <button
-        type="button"
-        onClick={toggleSideProjects}
-        className="ease-in-out duration-300 hover:opacity-50">
+      <button type="button" onClick={toggleSideProjects} className="ease-in-out duration-300 hover:opacity-50">
         <strong className="text-label text-content-standard-tertiary">
           {showSideProjects ? '사이드 프로젝트 숨기기' : '사이드 프로젝트 보기'}
         </strong>

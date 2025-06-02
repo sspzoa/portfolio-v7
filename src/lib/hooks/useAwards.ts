@@ -24,4 +24,4 @@ export const {
   dataAtom: awardsAtom,
   loadingAtom: awardsLoadingAtom,
   errorAtom: awardsErrorAtom,
-} = awardsState; 
+} = awardsState;

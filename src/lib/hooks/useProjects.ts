@@ -32,4 +32,4 @@ export const {
   dataAtom: projectsAtom,
   loadingAtom: projectsLoadingAtom,
   errorAtom: projectsErrorAtom,
-} = projectsState; 
+} = projectsState;

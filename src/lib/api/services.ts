@@ -44,4 +44,4 @@ export const getAbout = async (): Promise<AboutType[]> => {
 export const getSkills = async (): Promise<SkillType[]> => {
   const response = await apiClient.get<ApiResponse<SkillType>>(API_ENDPOINTS.INFO.SKILLS);
   return response.results;
-}; 
+};

@@ -24,4 +24,4 @@ export const {
   dataAtom: certificatesAtom,
   loadingAtom: certificatesLoadingAtom,
   errorAtom: certificatesErrorAtom,
-} = certificatesState; 
+} = certificatesState;

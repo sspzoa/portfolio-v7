@@ -9,7 +9,7 @@ const Skeleton = React.memo(({ className = '', ...props }: SkeletonProps) => (
   <div className={`animate-pulse bg-gray-200 rounded ${className}`} {...props} />
 ));
 
-const baseSkeletonClass = "bg-components-fill-standard-secondary animate-pulse";
+const baseSkeletonClass = 'bg-components-fill-standard-secondary animate-pulse';
 
 export const ProjectSkeleton = React.memo(() => (
   <div className={`${baseSkeletonClass} border border-line-outline rounded-radius-600`}>
@@ -49,7 +49,8 @@ export const AboutSkeleton = React.memo(() => (
 ));
 
 export const DefaultSkeleton = React.memo(() => (
-  <div className={`flex flex-row items-center ${baseSkeletonClass} rounded-radius-600 border border-line-outline p-spacing-400`}>
+  <div
+    className={`flex flex-row items-center ${baseSkeletonClass} rounded-radius-600 border border-line-outline p-spacing-400`}>
     <Skeleton className="w-[65px] h-4 flex-shrink-0" />
     <div className="flex flex-col gap-spacing-100 flex-grow">
       <Skeleton className="h-[22px] w-3/4" />

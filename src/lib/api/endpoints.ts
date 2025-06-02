@@ -9,4 +9,4 @@ export const API_ENDPOINTS = {
     ABOUT: '/api/info/about',
     SKILLS: '/api/info/skills',
   },
-}; 
+};

@@ -24,4 +24,4 @@ export const {
   dataAtom: aboutAtom,
   loadingAtom: aboutLoadingAtom,
   errorAtom: aboutErrorAtom,
-} = aboutState; 
+} = aboutState;

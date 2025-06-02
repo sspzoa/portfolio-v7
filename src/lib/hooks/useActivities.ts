@@ -24,4 +24,4 @@ export const {
   dataAtom: activitiesAtom,
   loadingAtom: activitiesLoadingAtom,
   errorAtom: activitiesErrorAtom,
-} = activitiesState; 
+} = activitiesState;

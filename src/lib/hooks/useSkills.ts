@@ -24,4 +24,4 @@ export const {
   dataAtom: skillsAtom,
   loadingAtom: skillsLoadingAtom,
   errorAtom: skillsErrorAtom,
-} = skillsState; 
+} = skillsState;

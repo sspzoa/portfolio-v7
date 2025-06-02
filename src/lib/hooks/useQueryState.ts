@@ -11,7 +11,7 @@ type QueryStateOptions<T> = {
   initialValue: T;
 };
 
-export const createQueryState = <T,>(options: QueryStateOptions<T>) => {
+export const createQueryState = <T>(options: QueryStateOptions<T>) => {
   const queryAtom = atomWithQuery(() => ({
     queryKey: options.queryKey,
     queryFn: options.queryFn,
@@ -28,7 +28,7 @@ export const createQueryState = <T,>(options: QueryStateOptions<T>) => {
     const [stateData, setStateData] = useAtom(dataAtom);
     const [loading, setLoading] = useAtom(loadingAtom);
     const [stateError, setStateError] = useAtom(errorAtom);
-    
+
     useEffect(() => {
       if (data) {
         setStateData(data);
@@ -40,22 +40,22 @@ export const createQueryState = <T,>(options: QueryStateOptions<T>) => {
         setLoading(false);
       }
     }, [data, error, setStateData, setLoading, setStateError]);
-    
+
     return {
       data: stateData,
       isLoading: isLoading || loading,
       error: stateError,
       setData: setStateData,
       setLoading,
-      setError: setStateError
+      setError: setStateError,
     };
   };
-  
+
   return {
     queryAtom,
     dataAtom,
     loadingAtom,
     errorAtom,
-    useQueryState
+    useQueryState,
   };
-}; 
+};

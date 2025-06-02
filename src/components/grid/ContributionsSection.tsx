@@ -11,7 +11,7 @@ const ContributionsSection = React.memo(function ContributionsSection() {
         rel="noreferrer noopener"
         href="https://github.com/sspzoa"
         className="h-[206px] flex justify-center items-center bg-components-fill-standard-primary p-spacing-400 rounded-radius-600 ease-in-out duration-300 hover:opacity-50">
-        <GitHubCalendar username="sspzoa"/>
+        <GitHubCalendar username="sspzoa" />
       </Link>
     </div>
   );
