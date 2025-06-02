@@ -1,6 +1,6 @@
-import { createQueryState } from './useQueryState';
-import { getActivities } from '../api/services';
 import type { ActivityType } from '@/types/grid/ActivityType';
+import { getActivities } from '../api/services';
+import { createQueryState } from './useQueryState';
 
 const activitiesState = createQueryState<ActivityType[]>({
   queryKey: ['activities'],

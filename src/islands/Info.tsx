@@ -1,10 +1,10 @@
-import React from 'react';
 import AboutSection from '@/components/info/AboutSection';
 import { ContactSection } from '@/components/info/ContactSection';
 import { ProfileSection } from '@/components/info/ProfileSection';
 import SkillsSection from '@/components/info/SkillsSection';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 const PROFILE = {
   imageUrl: '/images/sspzoa_logo.svg',

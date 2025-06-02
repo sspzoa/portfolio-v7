@@ -1,7 +1,7 @@
-import React from 'react';
 import type { ContactType } from '@/types/info/ContactType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import React from 'react';
 
 const ContactItem = React.memo(({ href, icon, text }: ContactType) => (
   <Link

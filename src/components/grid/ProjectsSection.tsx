@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useCallback } from 'react';
-import { useProjects, showSideProjectsAtom } from '@/lib/hooks/useProjects';
 import { ProjectSkeleton } from '@/components/Skeleton';
+import { showSideProjectsAtom, useProjects } from '@/lib/hooks/useProjects';
 import type { ProjectType } from '@/types/grid/ProjectType';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
+import React, { useCallback } from 'react';
 
 const ProjectCard = React.memo(({ project }: { project: ProjectType }) => {
   const icon = project?.icon?.file?.url;

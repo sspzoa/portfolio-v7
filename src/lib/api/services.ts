@@ -1,11 +1,11 @@
 import { apiClient } from './client';
 import { API_ENDPOINTS } from './endpoints';
 
-// Types
-import type { ProjectType } from '@/types/grid/ProjectType';
 import type { ActivityType } from '@/types/grid/ActivityType';
 import type { AwardType } from '@/types/grid/AwardType';
 import type { CertificateType } from '@/types/grid/CertificateType';
+// Types
+import type { ProjectType } from '@/types/grid/ProjectType';
 import type { AboutType } from '@/types/info/AboutType';
 import type { SkillType } from '@/types/info/SkillType';
 

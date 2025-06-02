@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
 import { AboutSkeleton } from '@/components/Skeleton';
+import { useAbout } from '@/lib/hooks/useAbout';
 import type { AboutType } from '@/types/info/AboutType';
 import Link from 'next/link';
-import { useAbout } from '@/lib/hooks/useAbout';
+import React from 'react';
 
 const formatDate = (dateString?: string) => {
   if (!dateString) return 'N/A';

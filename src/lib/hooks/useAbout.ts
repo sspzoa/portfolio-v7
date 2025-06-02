@@ -1,6 +1,6 @@
-import { createQueryState } from './useQueryState';
-import { getAbout } from '../api/services';
 import type { AboutType } from '@/types/info/AboutType';
+import { getAbout } from '../api/services';
+import { createQueryState } from './useQueryState';
 
 const aboutState = createQueryState<AboutType[]>({
   queryKey: ['about'],

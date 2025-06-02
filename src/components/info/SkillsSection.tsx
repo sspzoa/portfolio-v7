@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
 import { SkillSkeleton } from '@/components/Skeleton';
-import type { SkillType } from '@/types/info/SkillType';
 import { useSkills } from '@/lib/hooks/useSkills';
+import type { SkillType } from '@/types/info/SkillType';
+import React from 'react';
 
 const SkillItem = React.memo(({ name, icon }: { name: string; icon: string }) => (
   <img src={icon} alt={name} title={name} className="h-[32px] w-[32px] object-contain" draggable={false} />

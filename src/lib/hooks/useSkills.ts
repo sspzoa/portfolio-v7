@@ -1,6 +1,6 @@
-import { createQueryState } from './useQueryState';
-import { getSkills } from '../api/services';
 import type { SkillType } from '@/types/info/SkillType';
+import { getSkills } from '../api/services';
+import { createQueryState } from './useQueryState';
 
 const skillsState = createQueryState<SkillType[]>({
   queryKey: ['skills'],

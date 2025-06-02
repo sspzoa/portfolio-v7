@@ -1,6 +1,6 @@
-import { createQueryState } from './useQueryState';
-import { getCertificates } from '../api/services';
 import type { CertificateType } from '@/types/grid/CertificateType';
+import { getCertificates } from '../api/services';
+import { createQueryState } from './useQueryState';
 
 const certificatesState = createQueryState<CertificateType[]>({
   queryKey: ['certificates'],

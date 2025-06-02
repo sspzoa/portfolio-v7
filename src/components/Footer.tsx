@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
 import Link from 'next/link';
+import React, { useMemo } from 'react';
 
 const Footer = React.memo(function Footer() {
   const currentYear = useMemo(() => new Date().getFullYear(), []);

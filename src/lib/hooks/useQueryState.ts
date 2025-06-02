@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import type { QueryFunction, QueryKey } from '@tanstack/react-query';
 import { atom, useAtom } from 'jotai';
 import { atomWithQuery } from 'jotai-tanstack-query';
-import type { QueryFunction, QueryKey } from '@tanstack/react-query';
+import { useEffect } from 'react';
 
 const CACHE_TIME = 30 * 60 * 1000; // 30분
 

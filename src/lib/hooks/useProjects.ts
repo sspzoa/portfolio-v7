@@ -1,7 +1,7 @@
-import { atom } from 'jotai';
-import { createQueryState } from './useQueryState';
-import { getProjects } from '../api/services';
 import type { ProjectType } from '@/types/grid/ProjectType';
+import { atom } from 'jotai';
+import { getProjects } from '../api/services';
+import { createQueryState } from './useQueryState';
 
 const projectsState = createQueryState<ProjectType[]>({
   queryKey: ['projects'],

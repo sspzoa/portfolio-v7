@@ -1,6 +1,6 @@
-import { createQueryState } from './useQueryState';
-import { getAwards } from '../api/services';
 import type { AwardType } from '@/types/grid/AwardType';
+import { getAwards } from '../api/services';
+import { createQueryState } from './useQueryState';
 
 const awardsState = createQueryState<AwardType[]>({
   queryKey: ['awards'],

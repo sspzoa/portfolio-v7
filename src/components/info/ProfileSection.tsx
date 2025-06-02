@@ -1,6 +1,6 @@
-import React from 'react';
 import type { ProfileType } from '@/types/info/ProfileType';
 import Image from 'next/image';
+import React from 'react';
 
 export const ProfileSection = React.memo(({ imageUrl, name, title }: ProfileType) => (
   <div className="flex flex-col gap-spacing-300 items-center md:items-start">
